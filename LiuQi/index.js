@@ -1,9 +1,4 @@
-/*
- * Revision History:
- *     Initial: 2018/01/20        LiuQi
- */
-
 import { AppRegistry } from 'react-native';
-import App from './app/index';
+import App from './App';
 
 AppRegistry.registerComponent('LiuQi', () => App);
