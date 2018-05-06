@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -11,6 +5,7 @@ import {
   Text,
   View,
 } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -20,6 +15,17 @@ const instructions = Platform.select({
 });
 
 export default class Main extends Component {
+  static navigationOptions = {
+    header: null,
+    tabBarLabel: '我的',
+    tabBarIcon: ({ tintColor, focused }) => (
+      <Ionicons
+        name={focused ? 'ios-star' : 'ios-star-outline'}
+        size="26"
+        style={{ color: tintColor }}
+      />
+    ),
+  }
   render() {
     return (
       <View style={styles.container}>
