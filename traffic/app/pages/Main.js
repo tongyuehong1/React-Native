@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Picker } from 'react-native';
+import { StyleSheet, Picker } from 'react-native';
 import { MapView } from 'react-native-amap3d';
-
-const coordinate = {
-  latitude: 39.706901,
-  longitude: 116.397972,
-};
 
 export default class MapTypesExample extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -33,11 +28,10 @@ export default class MapTypesExample extends Component {
 
   render() {
     return (
-      <MapView.Marker image="flag" coordinate={coordinate}>
-        <View>
-          <Text>自定义信息窗体</Text>
-        </View>
-      </MapView.Marker>
+      <MapView
+        mapType={this.props.navigation.state.params.mapType}
+        style={StyleSheet.absoluteFill}
+      />
     );
   }
 }
