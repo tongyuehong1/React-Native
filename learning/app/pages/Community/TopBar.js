@@ -58,7 +58,7 @@ class TopBar extends Component {
 
         <View style={styles.margin}>
           <Tile
-            imageSrc={{ uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-4lSTsKOIrUyoE9YaTP5X2coSXCTzYbFl-DohpoBbQbWL8XbUmQ" }}
+            imageSrc={{ uri: "http://img2.imgtn.bdimg.com/it/u=207575541,2892112559&fm=27&gp=0.jpg" }}
             title="更多"
             titleStyle={{ fontWeight: 'bold', fontSize: Fonts.large, marginTop: Layout.Height(40) }}
             featured
