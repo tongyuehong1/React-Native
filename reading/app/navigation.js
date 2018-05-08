@@ -2,27 +2,28 @@
 import { TabNavigator } from 'react-navigation';
 
 import Bookcase from './pages/bookcase/index';
-import Discovery from './pages/discovery/index';
+import Classification from './pages/classification/index';
 import Mine from './pages/mine/index';
 
-const BasicApp = TabNavigator({
+const Tabs = TabNavigator({
   Bookcase: {
     screen: Bookcase,
   },
-  Discovery: {
-    screen: Discovery,
+  Classification: {
+    screen: Classification,
   },
   Mine: {
     screen: Mine,
   },
 }, {
+  initialRouteName: 'Bookcase',
   tabBarPosition: 'bottom',
   animationEnabled: true,
   lazy: true,
 });
 
 const Navigations = {
-  Main: { screen: BasicApp },
+  Main: { screen: Tabs },
 };
 
 export default Navigations;

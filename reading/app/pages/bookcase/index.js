@@ -1,63 +1,52 @@
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { connect } from 'react-redux';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import Book from './Book';
 
-export default class Main extends Component {
+class Bookcase extends Component {
   static navigationOptions = {
     header: null,
     tabBarLabel: '书架',
-    tabBarIcon: ({ tintColor, focused }) => (
-      <Ionicons
-        name={focused ? 'ios-star' : 'ios-star-outline'}
-        size="26"
-        style={{ color: tintColor }}
-      />
-    ),
   }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+      <View>
+        <View style={styles.topBar}>
+          <View>
+            <Text style={styles.topBarTitle}>
+              严阅
+            </Text>
+            <Text>
+              严天泽电子书阅读app，简称：严阅。
+            </Text>
+          </View>
+        </View>
+        <Book item={this.props.Book[0]} />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  topBar: {
+    marginTop: 30,
+    paddingBottom: 30,
+    paddingLeft: 20,
+    borderBottomColor: "gray",
+    borderBottomWidth: 1,
+    flexDirection: "row",
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  topBarTitle: {
+    fontSize: 30,
+    color: "black",
   },
 });
+
+export default connect(({ bookcase }) => ({
+  Book: bookcase.book,
+}))(Bookcase);

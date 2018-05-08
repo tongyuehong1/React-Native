@@ -1,63 +1,35 @@
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { StyleSheet, ScrollView } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import Top from './Top';
+import Footprint from './Footprint';
+import Medal from './Medal';
+import Membership from './Membership';
+import Feedback from './Feedback';
 
-export default class Main extends Component {
+import Layout from '../../res/dimensions';
+
+export default class Settings extends Component {
   static navigationOptions = {
     header: null,
-    tabBarLabel: '我的',
-    tabBarIcon: ({ tintColor, focused }) => (
-      <Ionicons
-        name={focused ? 'ios-star' : 'ios-star-outline'}
-        size="26"
-        style={{ color: tintColor }}
-      />
-    ),
-  }
+    tabBarLabel: '个人',
+  };
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+      <ScrollView style={styles.global}>
+        <Top />
+        <Footprint />
+        <Medal />
+        <Membership />
+        <Feedback />
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  global: {
+    marginTop: Layout.Height(40),
   },
 });
