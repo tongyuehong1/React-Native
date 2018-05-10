@@ -3,10 +3,11 @@ import {
   StyleSheet,
   Text,
   View,
+  ScrollView,
 } from 'react-native';
 import { connect } from 'react-redux';
-
 import Book from './Book';
+import Layout from '../../res/dimensions';
 
 class Bookcase extends Component {
   static navigationOptions = {
@@ -15,7 +16,7 @@ class Bookcase extends Component {
   }
   render() {
     return (
-      <View>
+      <ScrollView style={styles.global}>
         <View style={styles.topBar}>
           <View>
             <Text style={styles.topBarTitle}>
@@ -26,27 +27,59 @@ class Bookcase extends Component {
             </Text>
           </View>
         </View>
-        <Book item={this.props.Book[0]} />
-      </View>
+        <View style={styles.bookLine}>
+          <Book item={this.props.book[0]} />
+          <Book item={this.props.book[1]} />
+          <Book item={this.props.book[2]} />
+        </View>
+        <View style={styles.bookLine}>
+          <Book item={this.props.book[3]} />
+          <Book item={this.props.book[4]} />
+          <Book item={this.props.book[5]} />
+        </View>
+        <View style={styles.bookLine}>
+          <Book item={this.props.book[6]} />
+          <Book item={this.props.book[7]} />
+          <Book item={this.props.book[8]} />
+        </View>
+        <View style={styles.bookLine}>
+          <Book item={this.props.book[9]} />
+          <Book item={this.props.book[10]} />
+          <Book item={this.props.book[11]} />
+        </View>
+        <View style={styles.bookLine}>
+          <Book item={this.props.book[12]} />
+          <Book item={this.props.book[13]} />
+          <Book item={this.props.book[14]} />
+        </View>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  global: {
+    backgroundColor: '#FFFFFF', //white
+  },
   topBar: {
-    marginTop: 30,
-    paddingBottom: 30,
-    paddingLeft: 20,
-    borderBottomColor: "gray",
+    marginVertical: Layout.Height(40),
+    marginHorizontal: Layout.Width(30),
+    paddingBottom: Layout.Height(40),
     borderBottomWidth: 1,
-    flexDirection: "row",
+    borderColor: "#D3D3D3", //lightgray
   },
   topBarTitle: {
     fontSize: 30,
-    color: "black",
+    color: "#000000", //black
+  },
+  bookLine: {
+    marginBottom: Layout.Height(20),
+    paddingHorizontal: Layout.Width(20),
+    justifyContent: 'space-around',
+    flexDirection: 'row',
   },
 });
 
 export default connect(({ bookcase }) => ({
-  Book: bookcase.book,
+  book: bookcase.book,
 }))(Bookcase);

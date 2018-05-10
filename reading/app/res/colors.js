@@ -11,12 +11,9 @@ const Color = {
   backgroundColorGray: '#808080',
   backgroundColorLightcoral: '#F08080',
 
-  fontColorGray: '#808080',
-  fontColorWhite: '#FFFFFF',
-  fontColorDarkGoldenRod: '#B8860B',
-  fontColorOrangeRed: '#FF4500',
-  fontColorGoldenrod: '#DAA520',
-  fontColorLightcoral: '#F08080',
+  fontColor: '#FFFFFF', //white
+  fontLightColor: '#808080', //gray
+  fontdeeperColor: '#000000', //black
 
   iconColorGray: '#808080',
   iconColorBlack: '#000000',

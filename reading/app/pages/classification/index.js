@@ -2,40 +2,80 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
+  ScrollView,
   View,
+  TouchableOpacity,
 } from 'react-native';
+import { connect } from 'react-redux';
+import { Badge } from 'react-native-elements';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Types from './Types';
+import Layout from '../../res/dimensions';
 
-export default class Main extends Component {
+class Classification extends Component {
   static navigationOptions = {
-    header: null,
+    header: (
+      <View
+        style={{
+        paddingVertical: Layout.Height(10),
+        backgroundColor: 'white',
+        flexDirection: 'row',
+      }}
+      >
+        <TouchableOpacity>
+          <Badge
+            containerStyle={{
+            backgroundColor: 'whitesmoke',
+            flexDirection: 'row',
+            width: Layout.Width(460),
+            height: Layout.Height(50),
+            marginLeft: Layout.Width(40),
+            }}
+          >
+            <View style={{ marginRight: Layout.Width(10) }}>
+              <Ionicons
+                name="ios-search"
+                size={16}
+              />
+            </View>
+            <Text style={{ color: 'gray' }}>搜索</Text>
+          </Badge>
+        </TouchableOpacity>
+        <TouchableOpacity style={{ marginLeft: Layout.Width(30) }}>
+          <Ionicons
+            name="ios-qr-scanner"
+            size={30}
+          />
+        </TouchableOpacity>
+      </View>
+    ),
     tabBarLabel: '分类',
   }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          这他妈是第二页，知道不。
-        </Text>
-      </View>
+      <ScrollView style={styles.global}>
+        {
+          this.props.types.map((item) => {
+            return (
+              <Types
+                key={item.id}
+                item={item}
+              />
+            );
+          })
+        }
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  global: {
+    paddingTop: Layout.Height(20),
+    backgroundColor: '#FFFFFF', //white
   },
 });
+
+export default connect(({ classification }) => ({
+  ...classification,
+}))(Classification);

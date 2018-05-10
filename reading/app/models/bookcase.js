@@ -1,10 +1,81 @@
 export default {
   namespace: 'bookcase',
-
   state: {
     book: [{
       id: 1,
-      image: 'https://avatars0.githubusercontent.com/u/32216634?s=460&v=4',
+      image: 'http://bookbk.img.ireader.com/group6/M00/D7/C9/CmQUN1jdPgaEJaL8AAAAAERhiWg148316621.jpg?v=2tIvhN7R',
+      name: '全世界只有你不知道',
+      author: '殷谦',
+    }, {
+      id: 2,
+      image: 'http://book.img.ireader.com/group6/M00/D8/8D/CmQUNljdRQ-EKM-tAAAAAP4UGSU701467998.jpg?v=5L7hCThO',
+      name: '那么近这么远',
+      author: '沈嘉柯',
+    }, {
+      id: 3,
+      image: 'http://bookbk.img.ireader.com/group6/M00/81/B0/CmQUOFjdRVqEPTcSAAAAALcvjjE742535470.jpg?v=OS2gzpJI',
+      name: '今古奇观',
+      author: '(明)抱瓮老人',
+    }, {
+      id: 4,
+      image: 'http://bookbk.img.ireader.com/group6/M00/81/B5/CmQUOFjdRX6EOmQaAAAAAFE98kE030974285.jpg?v=ZQufokkZ',
+      name: '离魂衣',
+      author: '西岭雪',
+    }, {
+      id: 5,
+      image: 'http://bookbk.img.ireader.com/group6/M00/1E/5F/CmQUNlX1ZLaEbWmvAAAAAC7dM7Q569827557.jpg?v=kUmA_JnJ',
+      name: '八荒',
+      author: '石头花园的歌女',
+    }, {
+      id: 6,
+      image: 'http://book.img.ireader.com/group6/M00/83/D5/CmQUNlcYlemESdTdAAAAAJKIBwQ610655788.jpg?v=yFqxP5Tk',
+      name: '海月无尘(拂尘篇)',
+      author: '慕宁炊',
+    }, {
+      id: 7,
+      image: 'http://book.img.ireader.com/group6/M00/31/2D/CmQUOFcy496EfqjOAAAAAJLogmk010612221.jpg?v=wAYgy3jB&t=CmQUOFk2Lpg.',
+      name: '九命奇冤',
+      author: '吴沃尧',
+    }, {
+      id: 8,
+      image: 'http://bookbk.img.ireader.com/group6/M00/81/B6/CmQUOVjdRXyEQeknAAAAAKen-qs814207462.jpg?v=tuL2MI9O',
+      name: '绣花鞋子梅花咒',
+      author: '西岭雪',
+    }, {
+      id: 9,
+      image: 'http://book.img.ireader.com/group6/M00/07/1A/CmQUOFZdSLCEEi6NAAAAAIrYGRw170211782.jpg?v=m_N6bfh5',
+      name: '上海不相信爱情 第一部',
+      author: '周蔚',
+    }, {
+      id: 10,
+      image: 'http://bookbk.img.ireader.com/group6/M00/81/BB/CmQUOFjdRaaEN8aiAAAAAKAo0ZM680497640.jpg?v=SGG8mg84',
+      name: '哆啦A梦',
+      author: '汇编',
+    }, {
+      id: 11,
+      image: 'http://bookbk.img.ireader.com/group6/M00/80/0D/CmQUOFjdNbWEA-XeAAAAAE_Dn5U897074040.jpg?v=R0rM9bsD',
+      name: '读心诡探之刑警手记',
+      author: '风雨如书',
+    }, {
+      id: 12,
+      image: 'http://book.img.ireader.com/group6/M00/49/69/CmRaIVjdRYWEc2PgAAAAAFccdMc122100356.jpg?v=-vCKIklq',
+      name: '罗密欧与朱丽叶',
+      author: '莎士比亚',
+    }, {
+      id: 13,
+      image: 'http://bookbk.img.ireader.com/group6/M00/D1/92/CmQUN1jdDs-Ee4stAAAAAMMIMNc404432896.jpg?v=jaKyXpJC',
+      name: '温暖的机器',
+      author: '罗登',
+    }, {
+      id: 14,
+      image: 'http://bookbk.img.ireader.com/group6/M00/80/54/CmQUOVjdN6uEXD93AAAAADBzEC0363320081.jpg?v=ZhIabT5p',
+      name: '搜神记',
+      author: '干宝',
+    }, {
+      id: 15,
+      image: 'http://book.img.ireader.com/group6/M00/50/36/CmQUOVf9stCEVxRLAAAAAC3WG_E765669199.jpg?v=TLjIAWhk&t=CmQUOVrDTvc.',
+      name: '我用十年守候，换你一声答复',
+      author: '墨锦',
     }],
   },
 };

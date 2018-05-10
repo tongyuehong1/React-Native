@@ -1,11 +1,11 @@
 import init from './init';
 import router from './router';
-import settings from './settings';
 import bookcase from './bookcase';
+import classification from './classification';
 
 export const Models = [
   init,
   router,
-  settings,
   bookcase,
+  classification,
 ];

@@ -1,28 +1,26 @@
 import React, { Component } from 'react';
-import { StyleSheet, ScrollView } from 'react-native';
-
-import Top from './Top';
-import Footprint from './Footprint';
-import Medal from './Medal';
-import Membership from './Membership';
-import Feedback from './Feedback';
-
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+} from 'react-native';
 import Layout from '../../res/dimensions';
 
-export default class Settings extends Component {
+export default class Bookcase extends Component {
   static navigationOptions = {
     header: null,
-    tabBarLabel: '个人',
-  };
-
+    tabBarLabel: '书架',
+  }
   render() {
     return (
       <ScrollView style={styles.global}>
-        <Top />
-        <Footprint />
-        <Medal />
-        <Membership />
-        <Feedback />
+        <View style={styles.topBar}>
+          <View>
+            <Text style={styles.topBarTitle}>严阅</Text>
+            <Text>严天泽电子书阅读app，简称：严阅。</Text>
+          </View>
+        </View>
       </ScrollView>
     );
   }
@@ -30,6 +28,17 @@ export default class Settings extends Component {
 
 const styles = StyleSheet.create({
   global: {
-    marginTop: Layout.Height(40),
+    backgroundColor: '#FFFFFF', //white
+  },
+  topBar: {
+    marginVertical: Layout.Height(40),
+    marginHorizontal: Layout.Width(30),
+    paddingBottom: Layout.Height(40),
+    borderBottomWidth: 1,
+    borderColor: "#D3D3D3", //lightgray
+  },
+  topBarTitle: {
+    fontSize: 30,
+    color: "#000000", //black
   },
 });
