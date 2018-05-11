@@ -3,8 +3,8 @@ export default {
   state: {
     notification: [{
       id: 1,
-      icon: 'ios-mail-outline',
-      title: '我的消息',
+      icon: 'ios-list-box-outline',
+      title: '我的书签',
     }, {
       id: 2,
       icon: 'ios-brush-outline',
