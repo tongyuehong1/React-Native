@@ -68,9 +68,9 @@ export default {
       author: '罗登',
     }, {
       id: 14,
-      image: 'http://bookbk.img.ireader.com/group6/M00/80/54/CmQUOVjdN6uEXD93AAAAADBzEC0363320081.jpg?v=ZhIabT5p',
-      name: '搜神记',
-      author: '干宝',
+      image: 'http://bookbk.img.ireader.com/group6/M00/9B/5A/CmQUNleoQEOEIMNKAAAAAPiWJrA480901053.jpg?v=PcCzBVPb',
+      name: '小心结局',
+      author: '寒知了',
     }, {
       id: 15,
       image: 'http://book.img.ireader.com/group6/M00/50/36/CmQUOVf9stCEVxRLAAAAAC3WG_E765669199.jpg?v=TLjIAWhk&t=CmQUOVrDTvc.',

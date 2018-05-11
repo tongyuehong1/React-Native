@@ -11,29 +11,32 @@ import Layout from '../../res/dimensions';
 
 function Types(props) {
   return (
-    <TouchableOpacity style={styles.card}>
-      <Image
-        style={styles.imageSize}
-        source={{ uri: props.item.image }}
-      />
-      <View style={styles.generalize}>
-        <View style={styles.title}>
-          <Text style={styles.titleFont}>{props.item.title}</Text>
+    <View style={styles.global}>
+      <TouchableOpacity style={styles.card}>
+        <Image
+          style={styles.imageSize}
+          source={{ uri: props.item.image }}
+        />
+        <View style={styles.generalize}>
+          <View style={styles.title}>
+            <Text style={styles.titleFont}>{props.item.title}</Text>
+          </View>
+          <Text style={styles.description}>{props.item.description}</Text>
         </View>
-        <Text style={styles.description}>{props.item.description}</Text>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  global: {
+    borderBottomWidth: 1,
+    borderColor: "#D3D3D3", //lightgray
+  },
   card: {
     flexDirection: 'row',
     marginHorizontal: Layout.Width(20),
-    marginBottom: Layout.Height(20),
-    paddingBottom: Layout.Height(20),
-    borderBottomWidth: 1,
-    borderColor: "#D3D3D3", //lightgray
+    paddingVertical: Layout.Height(20),
   },
   imageSize: {
     height: Layout.Height(260),

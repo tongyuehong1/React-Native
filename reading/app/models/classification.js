@@ -36,6 +36,11 @@ export default {
       image: 'http://bookbk.img.ireader.com/group6/M00/2D/46/CmQUN1X2Ly2ETPnSAAAAAFps27k131819839.jpg?v=xjnX01RB&t=CmQUN1qCrtg.',
       title: '社科',
       description: '社会科学是指以社会现象为研究对象的科学,如政治学、经济学、军事学、法学、教育学、文艺学、史学、语言学、民族学、宗教学、社会学等...',
+    }, {
+      id: 8,
+      image: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526038665647&di=6c7182baaa28f66f6f3f2bb31e5ee45f&imgtype=0&src=http%3A%2F%2Fwww.xitongzhijia.net%2Fuploads%2Fallimg%2F171011%2F66-1G0111G356-51.gif',
+      title: '毕业设计',
+      description: '我的设计（论文）题目：基于Android的电子书阅读器的设计与实现',
     }],
   },
 };

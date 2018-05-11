@@ -22,7 +22,7 @@ class Bookcase extends Component {
             <Text style={styles.topBarTitle}>
               严阅
             </Text>
-            <Text>
+            <Text style={{ lineHeight: 40 }}>
               严天泽电子书阅读app，简称：严阅。
             </Text>
           </View>
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   topBar: {
     marginVertical: Layout.Height(40),
     marginHorizontal: Layout.Width(30),
-    paddingBottom: Layout.Height(40),
+    paddingBottom: Layout.Height(20),
     borderBottomWidth: 1,
     borderColor: "#D3D3D3", //lightgray
   },

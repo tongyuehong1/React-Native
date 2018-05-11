@@ -1,44 +1,93 @@
 import React, { Component } from 'react';
 import {
+  TouchableOpacity,
   StyleSheet,
   Text,
   View,
   ScrollView,
 } from 'react-native';
-import Layout from '../../res/dimensions';
+import { Avatar } from 'react-native-elements';
+import { connect } from 'react-redux';
 
-export default class Bookcase extends Component {
+import Notification from './Notification';
+
+import Layout from '../../res/dimensions';
+import Color from '../../res/colors';
+
+class Mine extends Component {
   static navigationOptions = {
     header: null,
-    tabBarLabel: '书架',
+    tabBarLabel: '个人',
   }
   render() {
     return (
-      <ScrollView style={styles.global}>
-        <View style={styles.topBar}>
-          <View>
-            <Text style={styles.topBarTitle}>严阅</Text>
-            <Text>严天泽电子书阅读app，简称：严阅。</Text>
+      <ScrollView>
+        <View style={styles.personal}>
+          <TouchableOpacity style={styles.editor}>
+            <Text
+              style={{ textAlign: 'right' }}
+            >
+              编辑
+            </Text>
+          </TouchableOpacity>
+          <View style={styles.avatar}>
+            <Avatar
+              xlarge
+              rounded
+              source={require('../../assets/images/YanTianze.jpg')}
+              onPress={() => {}}
+              activeOpacity={0.7}
+            />
+            <View style={styles.name}>
+              <Text style={styles.nameStyle}>严天泽</Text>
+            </View>
+            <View style={styles.time}>
+              <Text>阅读时长：</Text>
+              <Text style={{ color: '#D2691E' }}>162小时22分钟</Text>
+            </View>
           </View>
         </View>
+        {
+          this.props.notification.map((item) => {
+            return (
+              <Notification
+                key={item.id}
+                item={item}
+              />
+            );
+          })
+        }
       </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  global: {
-    backgroundColor: '#FFFFFF', //white
+  personal: {
+    backgroundColor: Color.backgroundBasicColor,
+    marginBottom: Layout.Height(10),
   },
-  topBar: {
-    marginVertical: Layout.Height(40),
-    marginHorizontal: Layout.Width(30),
-    paddingBottom: Layout.Height(40),
-    borderBottomWidth: 1,
-    borderColor: "#D3D3D3", //lightgray
+  editor: {
+    marginTop: Layout.Height(20),
+    marginRight: Layout.Width(20),
   },
-  topBarTitle: {
-    fontSize: 30,
-    color: "#000000", //black
+  avatar: {
+    alignItems: 'center',
+    marginBottom: Layout.Height(20),
+  },
+  name: {
+    marginTop: Layout.Height(20),
+  },
+  nameStyle: {
+    fontSize: 20,
+    color: '#000000', //black
+  },
+  time: {
+    marginTop: Layout.Height(10),
+    flexDirection: 'row',
   },
 });
+
+export default connect(({ mine }) => ({
+  ...mine,
+}))(Mine);

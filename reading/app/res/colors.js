@@ -1,5 +1,5 @@
 const Color = {
-  backgroundColorWhite: '#FFFFFF',
+  backgroundBasicColor: '#FFFFFF', //white
   backgroundColorOrange: '#FFA500',
   backgroundColorGold: '#FFD700',
   backgroundColorDarkSalmon: '#E9967A',
