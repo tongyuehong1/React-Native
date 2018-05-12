@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  TouchableOpacity,
   StyleSheet,
   Text,
   View,
@@ -10,7 +11,7 @@ import Layout from '../../res/dimensions';
 
 function Notification(props) {
   return (
-    <View style={styles.notification}>
+    <TouchableOpacity style={styles.notification}>
       <View style={styles.notificationBar}>
         <View style={styles.notificationBarLeft}>
           <Icon
@@ -30,7 +31,7 @@ function Notification(props) {
           marginRight={Layout.Width(30)}
         />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 

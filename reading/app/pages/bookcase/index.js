@@ -4,28 +4,38 @@ import {
   Text,
   View,
   ScrollView,
+  TouchableOpacity,
 } from 'react-native';
 import { connect } from 'react-redux';
 import Book from './Book';
+import Navigator, { dispatcher } from '../../helper/navigator';
 import Layout from '../../res/dimensions';
+
+let dispatch;
 
 class Bookcase extends Component {
   static navigationOptions = {
     header: null,
     tabBarLabel: '书架',
   }
+  constructor(props) {
+    super(props);
+    dispatch = dispatcher(this.props);
+  }
   render() {
     return (
       <ScrollView style={styles.global}>
         <View style={styles.topBar}>
-          <View>
+          <TouchableOpacity
+            onPress={() => dispatch(Navigator.navigate('BookcaseFirst'))}
+          >
             <Text style={styles.topBarTitle}>
               严阅
             </Text>
             <Text style={{ lineHeight: 40 }}>
               严天泽电子书阅读app，简称：严阅。
             </Text>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.bookLine}>
           <Book item={this.props.book[0]} />

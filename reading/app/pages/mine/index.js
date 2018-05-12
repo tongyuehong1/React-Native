@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import {
-  TouchableOpacity,
   StyleSheet,
   Text,
   View,
-  ScrollView,
 } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import { connect } from 'react-redux';
@@ -21,15 +19,8 @@ class Mine extends Component {
   }
   render() {
     return (
-      <ScrollView>
+      <View>
         <View style={styles.personal}>
-          <TouchableOpacity style={styles.editor}>
-            <Text
-              style={{ textAlign: 'right' }}
-            >
-              编辑
-            </Text>
-          </TouchableOpacity>
           <View style={styles.avatar}>
             <Avatar
               xlarge
@@ -57,7 +48,8 @@ class Mine extends Component {
             );
           })
         }
-      </ScrollView>
+        <View style={{ height: Layout.Height(300), backgroundColor: '#FFFFFF' }} />
+      </View>
     );
   }
 }
@@ -66,6 +58,7 @@ const styles = StyleSheet.create({
   personal: {
     backgroundColor: Color.backgroundBasicColor,
     marginBottom: Layout.Height(10),
+    paddingTop: Layout.Height(60),
   },
   editor: {
     marginTop: Layout.Height(20),
