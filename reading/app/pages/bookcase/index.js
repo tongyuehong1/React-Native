@@ -26,21 +26,29 @@ class Bookcase extends Component {
     return (
       <ScrollView style={styles.global}>
         <View style={styles.topBar}>
+          <Text style={styles.topBarTitle}>
+            严阅
+          </Text>
+          <Text style={{ lineHeight: 40 }}>
+            严天泽电子书阅读app，简称：严阅。
+          </Text>
+        </View>
+        <View style={styles.bookLine}>
           <TouchableOpacity
             onPress={() => dispatch(Navigator.navigate('BookcaseFirst'))}
           >
-            <Text style={styles.topBarTitle}>
-              严阅
-            </Text>
-            <Text style={{ lineHeight: 40 }}>
-              严天泽电子书阅读app，简称：严阅。
-            </Text>
+            <Book item={this.props.book[0]} />
           </TouchableOpacity>
-        </View>
-        <View style={styles.bookLine}>
-          <Book item={this.props.book[0]} />
-          <Book item={this.props.book[1]} />
-          <Book item={this.props.book[2]} />
+          <TouchableOpacity
+            onPress={() => dispatch(Navigator.navigate('BookcaseFirst'))}
+          >
+            <Book item={this.props.book[1]} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => dispatch(Navigator.navigate('BookcaseFirst'))}
+          >
+            <Book item={this.props.book[2]} />
+          </TouchableOpacity>
         </View>
         <View style={styles.bookLine}>
           <Book item={this.props.book[3]} />

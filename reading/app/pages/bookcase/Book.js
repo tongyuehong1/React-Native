@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  TouchableOpacity,
   Image,
   StyleSheet,
   View,
@@ -11,7 +10,7 @@ import Layout from '../../res/dimensions';
 
 function Book(props) {
   return (
-    <TouchableOpacity style={styles.book}>
+    <View style={styles.book}>
       <Image
         style={styles.imageSize}
         source={{ uri: props.item.image }}
@@ -20,7 +19,7 @@ function Book(props) {
         <Text style={styles.name}>{props.item.name}</Text>
         <Text style={styles.author}>{props.item.author}</Text>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 }
 
