@@ -13,7 +13,7 @@ export default class MapTypesExample extends Component {
       onValueChange: mapType => setParams({ mapType }),
     };
     return {
-      title: '地图模式',
+      title: '徐基欣地图导航',
       headerRight: (
         <Picker {...props}>
           <Picker.Item label="标准" value="standard" />
