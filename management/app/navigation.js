@@ -9,7 +9,7 @@ import Results from './pages/Student/Results/index';
 
 import Teacher from './pages/Teacher/index';
 
-import Register from './pages/Register/index';
+import Register from './pages/Register';
 
 const Navigations = {
   Main: { screen: Index },

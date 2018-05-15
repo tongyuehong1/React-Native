@@ -17,10 +17,10 @@ export default class Register extends Component {
       <View style={styles.global}>
         <Image
           style={styles.image}
-          source={{ uri: "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2472987446,3817427182&fm=27&gp=0.jpg" }}
+          source={{ uri: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526202568243&di=8a8283400066ebee3307baf127f4a441&imgtype=0&src=http%3A%2F%2Fimg.itlun.cn%2Fuploads%2Fallimg%2F170109%2F1-1F109194Z1.jpg" }}
         />
-        <Text style={styles.font}>满分，都是满分</Text>
-        <Text style={styles.font}>每位同学都很优秀</Text>
+        <Text style={styles.font}>你他妈查什么成绩</Text>
+        <Text style={styles.font}>二逼</Text>
       </View>
     );
   }

@@ -1,78 +1,93 @@
 import React, { Component } from 'react';
 import {
-  ScrollView,
   StyleSheet,
   View,
-  Image,
-  Picker,
+  ScrollView,
+  Text,
+  TouchableOpacity,
 } from 'react-native';
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import { Sae } from 'react-native-textinput-effects';
-import { Button } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
+import Navigator, { dispatcher } from '../../helper/navigator';
 
 import Layout from '../../res/dimensions';
 
-export default class Index extends Component {
+let dispatch;
+
+export default class Student extends Component {
   static navigationOptions = {
     header: null,
   }
-  state = {
-    school: '学生',
+  constructor(props) {
+    super(props);
+    dispatch = dispatcher(this.props);
   }
   render() {
     return (
       <ScrollView style={styles.global}>
-        <View style={styles.imagePosition}>
-          <Image
-            style={styles.imageSize}
-            source={{ uri: 'http://pic.qiantucdn.com/58pic/14/85/93/58PIC5558PICVSA_1024.jpg!qt324' }}
-          />
+        <View style={styles.top}>
+          <Text style={styles.topFont}>班级信息管理系统</Text>
         </View>
 
-        <View style={styles.input}>
-          <Picker
-            prompt="Picker"
-            mode="dropdown"
-            selectedValue={this.state.school}
-            onValueChange={({ lang }) => this.setState({ school: lang })}
+        <View style={styles.arrangement}>
+          <TouchableOpacity
+            onPress={() => dispatch(Navigator.navigate('Mine'))}
+            style={styles.card}
           >
-            <Picker.Item label="学生登录" value="略略略" />
-            <Picker.Item label="教师登录" value="js" />
-            <Picker.Item label="校长登录" value="net" />
-            <Picker.Item label="仝月虹登录" value="rn" />
-          </Picker>
-          <Sae
-            label="用户名"
-            labelStyle={{ color: '#F08080' }}
-            inputStyle={{ color: '#000000' }}
-            iconClass={FontAwesomeIcon}
-            iconName="pencil"
-            iconColor="#F08080"
-          />
-          <Sae
-            label="密码"
-            labelStyle={{ color: '#F08080' }}
-            inputStyle={{ color: '#000000' }}
-            iconClass={FontAwesomeIcon}
-            iconName="pencil"
-            iconColor="#F08080"
-          />
+            <Icon
+              containerStyle={styles.cardIcon}
+              size={30}
+              reverse
+              name="ios-heart"
+              type="ionicon"
+              color="#00aced"
+            />
+            <Text style={styles.cardName}>个人信息</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => dispatch(Navigator.navigate('Classmate'))}
+            style={styles.card}
+          >
+            <Icon
+              containerStyle={styles.cardIcon}
+              size={30}
+              reverse
+              name="ios-happy"
+              type="ionicon"
+              color="#00aced"
+            />
+            <Text style={styles.cardName}>同学信息</Text>
+          </TouchableOpacity>
         </View>
 
-        <View style={styles.button}>
-          <Button
-            title="登录"
-            loading
-            loadingProps={{ size: "large", color: "rgba(111, 202, 186, 1)" }}
-            titleStyle={{ fontWeight: "700" }}
-            buttonStyle={{
-              backgroundColor: "#F08080",
-              height: 45,
-              borderColor: "transparent",
-              borderRadius: 5,
-            }}
-            containerStyle={{ marginTop: 20 }}
-          />
+        <View style={styles.arrangement}>
+          <TouchableOpacity
+            onPress={() => dispatch(Navigator.navigate('Announcement'))}
+            style={styles.card}
+          >
+            <Icon
+              containerStyle={styles.cardIcon}
+              size={30}
+              reverse
+              name="ios-paw"
+              type="ionicon"
+              color="#00aced"
+            />
+            <Text style={styles.cardName}>班级公告</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() => dispatch(Navigator.navigate('Results'))}
+          >
+            <Icon
+              containerStyle={styles.cardIcon}
+              size={30}
+              reverse
+              name="ios-school"
+              type="ionicon"
+              color="#00aced"
+            />
+            <Text style={styles.cardName}>成绩录入</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     );
@@ -85,20 +100,34 @@ const styles = StyleSheet.create({
     width: Layout.Width(600),
     backgroundColor: '#FFFFFF',
   },
-  imagePosition: {
-    marginVertical: Layout.Height(40),
-    justifyContent: 'center',
+  top: {
     alignItems: 'center',
-  },
-  imageSize: {
-    height: Layout.Height(260),
-    width: Layout.Width(260),
-  },
-  input: {
-    paddingHorizontal: Layout.Width(80),
-  },
-  button: {
+    justifyContent: 'center',
     marginTop: Layout.Height(80),
-    paddingHorizontal: Layout.Width(80),
+    marginBottom: Layout.Height(40),
+  },
+  topFont: {
+    fontSize: 20,
+  },
+  arrangement: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingHorizontal: Layout.Width(20),
+    marginBottom: Layout.Height(40),
+  },
+  card: {
+    height: Layout.Height(240),
+    width: Layout.Width(240),
+    backgroundColor: '#40E0D0', //颜色：Turquoise
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+  },
+  cardIcon: {
+    marginBottom: Layout.Height(30),
+  },
+  cardName: {
+    fontSize: 18,
+    color: '#FFFFFF',
   },
 });

@@ -4,9 +4,10 @@ import {
   Text,
   View,
 } from 'react-native';
+import { Avatar } from 'react-native-elements';
 import { Madoka } from 'react-native-textinput-effects';
 
-import Layout from '../../res/dimensions';
+import Layout from '../../../res/dimensions';
 
 export default class Information extends Component {
   static navigationOptions = {
@@ -15,9 +16,24 @@ export default class Information extends Component {
   render() {
     return (
       <View>
+        <View style={styles.personal}>
+          <View style={styles.avatar}>
+            <Avatar
+              xlarge
+              rounded
+              source={{ uri: "https://avatars1.githubusercontent.com/u/31921214?s=460&v=4" }}
+              onPress={() => {}}
+              activeOpacity={0.7}
+            />
+            <View style={styles.name}>
+              <Text style={styles.nameStyle}>老师</Text>
+            </View>
+          </View>
+        </View>
+
         <View>
           <View style={styles.input}>
-            <Text style={styles.inputFont}>班级</Text>
+            <Text style={styles.inputFont}>管理班级</Text>
             <Madoka
               style={{ width: Layout.Width(300), marginLeft: Layout.Width(40) }}
               label="计算机14k2班"
@@ -28,18 +44,7 @@ export default class Information extends Component {
             />
           </View>
           <View style={styles.input}>
-            <Text style={styles.inputFont}>学号</Text>
-            <Madoka
-              style={{ width: Layout.Width(300), marginLeft: Layout.Width(40) }}
-              label="141903020702"
-              // this is used as active and passive border color
-              borderColor="#aee2c9"
-              labelStyle={{ color: '#808080' }}
-              inputStyle={{ color: '#f4a197' }}
-            />
-          </View>
-          <View style={styles.input}>
-            <Text style={styles.inputFont}>电话</Text>
+            <Text style={styles.inputFont}>联系电话</Text>
             <Madoka
               style={{ width: Layout.Width(300), marginLeft: Layout.Width(40) }}
               label="13833008838"

@@ -8,9 +8,9 @@ import {
   Picker,
   TouchableOpacity,
 } from 'react-native';
+import { Button } from 'react-native-elements';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { Sae } from 'react-native-textinput-effects';
-import { Button } from 'react-native-elements';
 import Navigator, { dispatcher } from '../helper/navigator';
 
 import Layout from '../res/dimensions';
@@ -24,7 +24,8 @@ export default class Index extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      language: null,
+      LoginMode: null,
+      SelectTheClass: null,
     };
     dispatch = dispatcher(this.props);
   }
@@ -40,14 +41,35 @@ export default class Index extends Component {
 
         <View style={styles.input}>
           <Picker
-            selectedValue={this.state.language}
-            onValueChange={lang => this.setState({ language: lang })}
+            selectedValue={this.state.LoginMode}
+            onValueChange={lang => this.setState({ LoginMode: lang })}
             prompt="选择登录方式"
             mode="dialog"
           >
             <Picker.Item label="学生登录" value="学生登录" />
             <Picker.Item label="教师登录" value="教师登录" />
           </Picker>
+        </View>
+
+        <View style={styles.asdf}>
+          <Picker
+            selectedValue={this.state.SelectTheClass}
+            onValueChange={lang => this.setState({ SelectTheClass: lang })}
+            prompt="选择所在班级"
+            mode="dialog"
+          >
+            <Picker.Item label="计算机14k1班" value="计算机14k1班" />
+            <Picker.Item label="计算机14k2班" value="计算机14k2班" />
+            <Picker.Item label="电信14k1班" value="电信14k1班" />
+            <Picker.Item label="电信14k2班" value="电信14k2班" />
+            <Picker.Item label="软件14k1班" value="软件14k1班" />
+            <Picker.Item label="软件14k2班" value="软件14k2班" />
+            <Picker.Item label="通信14k1班" value="通信14k1班" />
+            <Picker.Item label="通信14k2班" value="通信14k2班" />
+            <Picker.Item label="网络14k1班" value="网络14k1班" />
+            <Picker.Item label="网络14k2班" value="网络14k2班" />
+          </Picker>
+
           <Sae
             label="用户名"
             labelStyle={{ color: '#F08080' }}
@@ -80,7 +102,6 @@ export default class Index extends Component {
             containerStyle={{ marginTop: 20 }}
           />
         </View>
-
         <TouchableOpacity
           onPress={() => dispatch(Navigator.navigate('Register'))}
           style={styles.registered}
@@ -93,6 +114,9 @@ export default class Index extends Component {
 }
 
 const styles = StyleSheet.create({
+  asdf: {
+    paddingHorizontal: Layout.Width(80),
+  },
   global: {
     height: Layout.Height(1000),
     width: Layout.Width(600),
@@ -115,7 +139,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: Layout.Width(80),
   },
   registered: {
-    marginTop: 30,
+    marginVertical: Layout.Height(20),
     justifyContent: 'center',
     alignItems: 'center',
   },
