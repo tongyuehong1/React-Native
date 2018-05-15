@@ -90,7 +90,7 @@ export default class Index extends Component {
 
         <View style={styles.button}>
           <Button
-            onPress={() => dispatch(Navigator.navigate('Student'))}
+            onPress={() => dispatch(Navigator.navigate('Teacher'))}
             title="登录"
             titleStyle={{ fontWeight: "700" }}
             buttonStyle={{
