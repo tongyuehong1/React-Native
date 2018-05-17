@@ -8,7 +8,7 @@ import {
 
 import Layout from '../../../res/dimensions';
 
-function Classmate(props) {
+function ClassCadre(props) {
   return (
     <View style={styles.card}>
       <Image
@@ -16,7 +16,6 @@ function Classmate(props) {
         source={{ uri: props.item.image }}
       />
       <View style={styles.font}>
-        <Text>{props.item.position}</Text>
         <Text>姓名：{props.item.name}</Text>
         <Text>性别：{props.item.gender}</Text>
         <Text>班级：{props.item.class}</Text>
@@ -42,4 +41,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Classmate;
+export default ClassCadre;

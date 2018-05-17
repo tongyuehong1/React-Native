@@ -28,7 +28,6 @@ export default class Register extends Component {
           <Text style={styles.inputFont}>班级</Text>
           <Madoka
             style={{ width: Layout.Width(300), marginLeft: Layout.Width(40) }}
-            // this is used as active and passive border color
             borderColor="#FA8072"
             labelStyle={{ color: '#808080' }}
             inputStyle={{ color: '#f4a197' }}
@@ -38,7 +37,6 @@ export default class Register extends Component {
           <Text style={styles.inputFont}>用户名</Text>
           <Madoka
             style={{ width: Layout.Width(300), marginLeft: Layout.Width(40) }}
-            // this is used as active and passive border color
             borderColor="#FA8072"
             labelStyle={{ color: '#808080' }}
             inputStyle={{ color: '#f4a197' }}

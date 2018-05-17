@@ -7,17 +7,36 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 
-import Information from './Information';
+import TheTeacherInCharge from './TheTeacherInCharge';
+import ClassCadre from './ClassCadre';
+import Classmate from './Classmate';
 
 import Layout from '../../../res/dimensions';
 
-class Classmate extends Component {
+class ManageClassInformation extends Component {
   static navigationOptions = {
     header: null,
   }
   render() {
     return (
       <ScrollView>
+        <View style={styles.classCadre}>
+          <Text style={styles.classCadreFont}>班主任</Text>
+        </View>
+
+        <View style={styles.card}>
+          {
+            this.props.theTeacherInCharge.map((item) => {
+              return (
+                <TheTeacherInCharge
+                  key={item.id}
+                  item={item}
+                />
+              );
+            })
+          }
+        </View>
+
         <View style={styles.classCadre}>
           <Text style={styles.classCadreFont}>班干部</Text>
         </View>
@@ -26,7 +45,7 @@ class Classmate extends Component {
           {
             this.props.classCadre.map((item) => {
               return (
-                <Information
+                <ClassCadre
                   key={item.id}
                   item={item}
                 />
@@ -43,7 +62,7 @@ class Classmate extends Component {
           {
             this.props.ordinary.map((item) => {
               return (
-                <Information
+                <Classmate
                   key={item.id}
                   item={item}
                 />
@@ -73,6 +92,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(({ classmate }) => ({
-  ...classmate,
-}))(Classmate);
+export default connect(({ classInformation }) => ({
+  ...classInformation,
+}))(ManageClassInformation);

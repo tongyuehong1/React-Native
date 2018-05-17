@@ -9,7 +9,7 @@ import { Madoka } from 'react-native-textinput-effects';
 
 import Layout from '../../../res/dimensions';
 
-export default class Information extends Component {
+export default class StudentPersonalInformation extends Component {
   static navigationOptions = {
     header: null,
   }

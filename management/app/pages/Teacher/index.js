@@ -30,7 +30,7 @@ export default class Student extends Component {
 
         <View style={styles.arrangement}>
           <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('Mine'))}
+            onPress={() => dispatch(Navigator.navigate('TeacherPersonalInformation'))}
             style={styles.card}
           >
             <Icon
@@ -44,7 +44,7 @@ export default class Student extends Component {
             <Text style={styles.cardName}>个人信息</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('Classmate'))}
+            onPress={() => dispatch(Navigator.navigate('ManageClassInformation'))}
             style={styles.card}
           >
             <Icon
@@ -55,13 +55,13 @@ export default class Student extends Component {
               type="ionicon"
               color="#00aced"
             />
-            <Text style={styles.cardName}>同学信息</Text>
+            <Text style={styles.cardName}>管理班级信息</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.arrangement}>
           <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('Announcement'))}
+            onPress={() => dispatch(Navigator.navigate('ReleaseAnnouncement'))}
             style={styles.card}
           >
             <Icon
@@ -72,11 +72,11 @@ export default class Student extends Component {
               type="ionicon"
               color="#00aced"
             />
-            <Text style={styles.cardName}>班级公告</Text>
+            <Text style={styles.cardName}>发布班级公告</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.card}
-            onPress={() => dispatch(Navigator.navigate('Results'))}
+            onPress={() => dispatch(Navigator.navigate('ScoreEntry'))}
           >
             <Icon
               containerStyle={styles.cardIcon}

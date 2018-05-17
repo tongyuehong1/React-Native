@@ -30,7 +30,7 @@ export default class Student extends Component {
 
         <View style={styles.arrangement}>
           <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('Mine'))}
+            onPress={() => dispatch(Navigator.navigate('StudentPersonalInformation'))}
             style={styles.card}
           >
             <Icon
@@ -41,7 +41,7 @@ export default class Student extends Component {
               type="ionicon"
               color="#00aced"
             />
-            <Text style={styles.cardName}>我的信息</Text>
+            <Text style={styles.cardName}>个人信息</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => dispatch(Navigator.navigate('Classmate'))}
@@ -55,7 +55,7 @@ export default class Student extends Component {
               type="ionicon"
               color="#00aced"
             />
-            <Text style={styles.cardName}>同学信息</Text>
+            <Text style={styles.cardName}>查看同学信息</Text>
           </TouchableOpacity>
         </View>
 
@@ -72,7 +72,7 @@ export default class Student extends Component {
               type="ionicon"
               color="#00aced"
             />
-            <Text style={styles.cardName}>班级公告</Text>
+            <Text style={styles.cardName}>查看班级公告</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.card}

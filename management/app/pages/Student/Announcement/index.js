@@ -12,7 +12,7 @@ import Layout from '../../../res/dimensions';
 
 let dispatch;
 
-export default class Information extends Component {
+export default class Announcement extends Component {
   static navigationOptions = {
     header: null,
   }

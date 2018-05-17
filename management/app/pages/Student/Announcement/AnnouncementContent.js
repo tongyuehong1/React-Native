@@ -8,7 +8,7 @@ import {
 
 import Layout from '../../../res/dimensions';
 
-export default class Information extends Component {
+export default class AnnouncementContent extends Component {
   static navigationOptions = {
     header: null,
   }

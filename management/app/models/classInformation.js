@@ -1,6 +1,16 @@
 export default {
-  namespace: 'classmate',
+  namespace: 'classInformation',
   state: {
+    theTeacherInCharge: [{
+      id: 1,
+      image: 'https://avatars0.githubusercontent.com/u/32216634?s=460&v=4',
+      name: '刘琦',
+      gender: '男',
+      qq: '982252163',
+      wechat: 'liuqi982252163',
+      mobilePhone: '18233286287',
+      office: '一校区单身楼613',
+    }],
     classCadre: [{
       id: 1,
       image: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=845061817,3482904951&fm=27&gp=0.jpg',
@@ -13,7 +23,7 @@ export default {
     }, {
       id: 2,
       image: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1041521719,4046775256&fm=27&gp=0.jpg',
-      position: '职务：团支书',
+      position: '团支书',
       name: '王冰',
       gender: '女',
       class: '计算机14k2班',
@@ -22,7 +32,7 @@ export default {
     }, {
       id: 3,
       image: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=525793114,2060865463&fm=27&gp=0.jpg',
-      position: '职务：宣传委员',
+      position: '宣传委员',
       name: '李阳阳',
       gender: '男',
       class: '计算机14k2班',
@@ -31,7 +41,7 @@ export default {
     }, {
       id: 4,
       image: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2913061120,181996338&fm=27&gp=0.jpg',
-      position: '职务：体育委员',
+      position: '体育委员',
       name: '李宜泽',
       gender: '男',
       class: '计算机14k2班',
@@ -40,7 +50,7 @@ export default {
     }, {
       id: 5,
       image: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2398201517,1563949100&fm=27&gp=0.jpg',
-      position: '职务：组织委员',
+      position: '组织委员',
       name: '卢赤希',
       gender: '男',
       class: '计算机14k2班',
@@ -49,7 +59,7 @@ export default {
     }, {
       id: 6,
       image: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2988065565,1735810570&fm=27&gp=0.jpg',
-      position: '职务：生活委员',
+      position: '生活委员',
       name: '么济恺',
       gender: '男',
       class: '计算机14k2班',
@@ -58,7 +68,7 @@ export default {
     }, {
       id: 7,
       image: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2549424477,1605690779&fm=27&gp=0.jpg',
-      position: '职务：治保委员',
+      position: '治保委员',
       name: '齐绍彭',
       gender: '男',
       class: '计算机14k2班',
@@ -67,7 +77,7 @@ export default {
     }, {
       id: 8,
       image: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=4071769206,1382282299&fm=27&gp=0.jpg',
-      position: '职务：文艺委员',
+      position: '文艺委员',
       name: '石梦宇',
       gender: '女',
       class: '计算机14k2班',
@@ -76,7 +86,7 @@ export default {
     }, {
       id: 9,
       image: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2195936701,48350894&fm=27&gp=0.jpg',
-      position: '职务：心理委员',
+      position: '心理委员',
       name: '王建',
       gender: '男',
       class: '计算机14k2班',
@@ -85,7 +95,7 @@ export default {
     }, {
       id: 10,
       image: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1218966565,3810279075&fm=27&gp=0.jpg',
-      position: '职务：学习委员',
+      position: '学习委员',
       name: '张远辉',
       gender: '男',
       class: '计算机14k2班',
@@ -94,7 +104,7 @@ export default {
     }, {
       id: 10,
       image: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4219501990,1422885520&fm=27&gp=0.jpg',
-      position: '职务：生活委员',
+      position: '生活委员',
       name: '甄霖腾',
       gender: '女',
       class: '计算机14k2班',
