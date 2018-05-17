@@ -13,7 +13,7 @@ export default class MapTypesExample extends Component {
       onValueChange: mapType => setParams({ mapType }),
     };
     return {
-      title: '徐基欣地图导航',
+      title: '徐基欣——地图',
       headerRight: (
         <Picker {...props}>
           <Picker.Item label="标准" value="standard" />
@@ -29,6 +29,9 @@ export default class MapTypesExample extends Component {
   render() {
     return (
       <MapView
+        locationEnabled
+        onLocation={({ nativeEvent }) =>
+        console.log(`${nativeEvent.latitude}, ${nativeEvent.longitude}`)}
         mapType={this.props.navigation.state.params.mapType}
         style={StyleSheet.absoluteFill}
       />

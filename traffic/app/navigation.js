@@ -1,7 +1,13 @@
-import Main from './pages/Main';
+import Index from './pages/index';
+
+import Map from './pages/Map';
+import Route from './pages/Route';
 
 const Navigations = {
-  Main: { screen: Main },
+  Index: { screen: Index },
+
+  Map: { screen: Map },
+  Route: { screen: Route },
 };
 
 export default Navigations;
