@@ -11,10 +11,11 @@ export default {
       mobilePhone: '18233286287',
       office: '一校区单身楼613',
     }],
+
     classCadre: [{
       id: 1,
       image: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=845061817,3482904951&fm=27&gp=0.jpg',
-      position: '职务：班长',
+      position: '班长',
       name: '徐基欣',
       gender: '男',
       class: '计算机14k2班',

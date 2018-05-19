@@ -52,9 +52,18 @@ export default class Register extends Component {
             inputStyle={{ color: '#f4a197' }}
           />
         </View>
+        <View style={styles.input}>
+          <Text style={styles.inputFont}>确认密码</Text>
+          <Madoka
+            style={{ width: Layout.Width(300), marginLeft: Layout.Width(40) }}
+            // this is used as active and passive border color
+            borderColor="#FA8072"
+            labelStyle={{ color: '#808080' }}
+            inputStyle={{ color: '#f4a197' }}
+          />
+        </View>
         <View style={styles.buttonPosition}>
           <Button
-            onPress={() => dispatch(Navigator.navigate('index'))}
             title="注册"
             titleStyle={{ fontWeight: "700" }}
             buttonStyle={{

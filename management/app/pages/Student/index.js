@@ -44,7 +44,7 @@ export default class Student extends Component {
             <Text style={styles.cardName}>个人信息</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('Classmate'))}
+            onPress={() => dispatch(Navigator.navigate('ClassInformation'))}
             style={styles.card}
           >
             <Icon
@@ -76,7 +76,7 @@ export default class Student extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.card}
-            onPress={() => dispatch(Navigator.navigate('Results'))}
+            onPress={() => dispatch(Navigator.navigate('Scores'))}
           >
             <Icon
               containerStyle={styles.cardIcon}

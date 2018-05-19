@@ -7,26 +7,27 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 
-import Information from './Information';
+import TheTeacherInCharge from '../../Teacher/ManageClassInformation/TheTeacherInCharge';
+import ClassCadre from '../../Teacher/ManageClassInformation/ClassCadre';
+import Classmate from '../../Teacher/ManageClassInformation/Classmate';
 
 import Layout from '../../../res/dimensions';
 
-class Classmate extends Component {
+class ManageClassInformation extends Component {
   static navigationOptions = {
     header: null,
   }
   render() {
     return (
       <ScrollView>
-        <View style={styles.classCadre}>
-          <Text style={styles.classCadreFont}>班干部</Text>
+        <View style={styles.class}>
+          <Text style={styles.classFont}>班主任</Text>
         </View>
-
         <View style={styles.card}>
           {
-            this.props.classCadre.map((item) => {
+            this.props.theTeacherInCharge.map((item) => {
               return (
-                <Information
+                <TheTeacherInCharge
                   key={item.id}
                   item={item}
                 />
@@ -35,15 +36,30 @@ class Classmate extends Component {
           }
         </View>
 
-        <View style={styles.classCadre}>
-          <Text style={styles.classCadreFont}>同学</Text>
+        <View style={styles.class}>
+          <Text style={styles.classFont}>班干部</Text>
+        </View>
+        <View style={styles.card}>
+          {
+            this.props.classCadre.map((item) => {
+              return (
+                <ClassCadre
+                  key={item.id}
+                  item={item}
+                />
+              );
+            })
+          }
         </View>
 
+        <View style={styles.class}>
+          <Text style={styles.classFont}>同学</Text>
+        </View>
         <View style={styles.card}>
           {
             this.props.ordinary.map((item) => {
               return (
-                <Information
+                <Classmate
                   key={item.id}
                   item={item}
                 />
@@ -57,22 +73,29 @@ class Classmate extends Component {
 }
 
 const styles = StyleSheet.create({
-  classCadre: {
+  class: {
     marginVertical: Layout.Height(40),
     marginHorizontal: Layout.Width(40),
     paddingBottom: Layout.Height(20),
     borderBottomWidth: 1,
     borderBottomColor: '#D3D3D3',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
-  classCadreFont: {
+  classFont: {
     fontSize: 30,
     color: '#000000', //black
   },
   card: {
     marginHorizontal: Layout.Width(40),
   },
+  edit: {
+    fontSize: 14,
+    color: '#808080',
+  },
 });
 
-export default connect(({ classmate }) => ({
-  ...classmate,
-}))(Classmate);
+export default connect(({ classInformation }) => ({
+  ...classInformation,
+}))(ManageClassInformation);

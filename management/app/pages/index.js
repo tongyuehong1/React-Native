@@ -24,7 +24,7 @@ export default class Index extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      LoginMode: null,
+      LoginMode: 'student',
       SelectTheClass: null,
     };
     dispatch = dispatcher(this.props);
@@ -46,8 +46,8 @@ export default class Index extends Component {
             prompt="选择登录方式"
             mode="dialog"
           >
-            <Picker.Item label="学生登录" value="学生登录" />
-            <Picker.Item label="教师登录" value="教师登录" />
+            <Picker.Item label="学生登录" value="student" />
+            <Picker.Item label="教师登录" value="teacher" />
           </Picker>
         </View>
 
@@ -90,7 +90,7 @@ export default class Index extends Component {
 
         <View style={styles.button}>
           <Button
-            onPress={() => dispatch(Navigator.navigate('Teacher'))}
+            onPress={this.state.LoginMode === 'student' ? () => dispatch(Navigator.navigate('Student')) : () => dispatch(Navigator.navigate('Teacher'))}
             title="登录"
             titleStyle={{ fontWeight: "700" }}
             buttonStyle={{
