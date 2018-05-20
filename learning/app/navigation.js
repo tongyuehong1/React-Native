@@ -5,7 +5,6 @@ import Notifications from './pages/Discovery/Components/Notifications';
 import Search from './pages/Discovery/Components/Search';
 import Download from './pages/Discovery/Components/Download';
 import Classic from './pages/Discovery/SlideBar/Classic';
-import Quality from './pages/Discovery/SlideBar/Quality';
 import Album from './pages/TheAlbum/index';
 import Community from './pages/Community/index';
 import Settings from './pages/Settings/index';
@@ -31,7 +30,6 @@ const Navigations = {
   Search: { screen: Search },
   Download: { screen: Download },
   Classic: { screen: Classic },
-  Quality: { screen: Quality },
 };
 
 export default Navigations;

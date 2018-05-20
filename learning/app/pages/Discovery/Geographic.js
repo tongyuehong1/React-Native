@@ -1,34 +1,5 @@
-/*
- * MIT License
- *
- * Copyright (c) 2018 SmartestEE Co., Ltd..
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-/*
- * Revision History:
- *     Initial: 2018/01/24        LiuQi
- */
-
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { Icon } from 'react-native-elements';
 
@@ -42,8 +13,8 @@ import Icons from '../../res/icons';
 class Geographic extends Component {
   render() {
     return (
-      <View style={styles.global}>
-        <View style={styles.titleBar}>
+      <View>
+        <TouchableOpacity style={styles.titleBar}>
           <View style={styles.titleBarLeft}>
             <Text style={styles.titleBarLeftFont}>看鉴地理</Text>
           </View>
@@ -56,7 +27,7 @@ class Geographic extends Component {
               color={Colors.iconColorGray}
             />
           </View>
-        </View>
+        </TouchableOpacity>
 
         <View>
           <Plate item={this.props.geographic[0]} />
@@ -67,14 +38,12 @@ class Geographic extends Component {
 }
 
 const styles = StyleSheet.create({
-  global: {
-    marginBottom: Layout.Height(20),
-    backgroundColor: Colors.backgroundColorWhite,
-  },
-
   titleBar: {
     flexDirection: "row",
     height: Layout.Height(80),
+    backgroundColor: '#FFFFFF',
+    borderBottomWidth: 2,
+    borderColor: '#F5F5F5',
   },
 
   titleBarLeft: {

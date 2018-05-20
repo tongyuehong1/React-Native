@@ -1,37 +1,7 @@
-/*
- * MIT License
- *
- * Copyright (c) 2018 SmartestEE Co., Ltd..
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-/*
- * Revision History:
- *     Initial: 2018/01/27        LiuQi
- */
-
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
-import Carousel from '../../components/Carousel';
 import Open from './Components/Open';
 import Rate from './Components/Rate';
 
@@ -42,10 +12,10 @@ class Advanced extends Component {
   render() {
     return (
       <View>
-        <View style={styles.carousel}>
-          <Carousel slides={this.props.slides} />
-        </View>
-
+        <Image
+          style={styles.image}
+          source={{ uri: 'https://images.unsplash.com/photo-1506361797048-46a149213205?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=493e200df17b54d1ef10eb61e1df148a&w=1000&q=80' }}
+        />
         <Open />
 
         <View style={styles.rate}>
@@ -66,8 +36,10 @@ class Advanced extends Component {
 }
 
 const styles = StyleSheet.create({
-  carousel: {
+  image: {
     marginTop: Layout.Height(-24),
+    height: Layout.Height(400),
+    width: Layout.Width(640),
   },
 
   rate: {
@@ -75,10 +47,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(({
-  carousel,
-  thealbum,
-}) => ({
-  slides: carousel.theAlbum,
+export default connect(({ thealbum }) => ({
   advanced: thealbum.advanced,
 }))(Advanced);
