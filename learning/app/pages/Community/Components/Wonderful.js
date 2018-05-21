@@ -61,7 +61,7 @@ function CommunityWonderful(props) {
         <View style={styles.interactionLeft}>
           <View style={styles.interactionLeftIcon}>
             <Icon
-              size={Icons.small}
+              size={18}
               name="ios-chatboxes"
               type="ionicon"
               color={Colors.iconColorGray}
@@ -70,7 +70,7 @@ function CommunityWonderful(props) {
           </View>
           <View style={styles.interactionLeftIcon}>
             <Icon
-              size={Icons.small}
+              size={18}
               name="ios-thumbs-up"
               type="ionicon"
               color={Colors.iconColorGray}

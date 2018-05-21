@@ -16,7 +16,7 @@ class HumanHistory extends Component {
       <View>
         <TouchableOpacity style={styles.titleBar}>
           <View style={styles.titleBarLeft}>
-            <Text style={styles.titleBarLeftFont}>看鉴人文历史</Text>
+            <Text style={styles.titleBarLeftFont}>人文历史</Text>
           </View>
           <View style={styles.titleBarRight}>
             <Text style={styles.titleBarRightFont}>更多</Text>

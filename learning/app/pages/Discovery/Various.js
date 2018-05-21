@@ -13,7 +13,7 @@ class Various extends Component {
       <View>
         <TouchableOpacity style={styles.titleBar}>
           <View style={styles.titleBarLeft}>
-            <Text style={styles.titleBarLeftFont}>看鉴V</Text>
+            <Text style={styles.titleBarLeftFont}>看点V</Text>
           </View>
         </TouchableOpacity>
         <View>

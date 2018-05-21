@@ -4,16 +4,19 @@ import {
   View,
   Text,
   ScrollView,
+  TextInput,
 } from 'react-native';
 import { Avatar } from 'react-native-elements';
-import { connect } from 'react-redux';
 
-import Information from './Information';
 import Layout from '../../../res/dimensions';
 
-class PersonalInformation extends Component {
+export default class PersonalInformation extends Component {
   static navigationOptions = {
     header: null,
+  }
+  constructor(props) {
+    super(props);
+    this.state = { text: '' };
   }
   render() {
     return (
@@ -30,17 +33,13 @@ class PersonalInformation extends Component {
             activeOpacity={0.7}
           />
         </View>
-        <View style={{ marginBottom: 100 }}>
-          {
-            this.props.studentInformation.map((item) => {
-              return (
-                <Information
-                  key={item.id}
-                  item={item}
-                />
-              );
-            })
-          }
+        <View>
+          <Text>姓名</Text>
+          <TextInput
+            style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+            onChangeText={({ text }) => this.setState({ text })}
+            value={this.state.text}
+          />
         </View>
       </ScrollView>
     );
@@ -71,8 +70,3 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
-
-
-export default connect(({ personalInformation }) => ({
-  ...personalInformation,
-}))(PersonalInformation);

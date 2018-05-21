@@ -3,8 +3,6 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 
 import Layout from '../../../../res/dimensions';
-import Icons from '../../../../res/icons';
-import Fonts from '../../../../res/fonts';
 
 export default (props) => {
   return (
@@ -19,7 +17,7 @@ export default (props) => {
           name={props.name}
           type="ionicon"
           color={props.color}
-          size={Icons.medium}
+          size={20}
         />
         <Text style={styles.font}>{props.text}</Text>
       </TouchableOpacity>
@@ -31,13 +29,12 @@ const styles = StyleSheet.create({
   layout: {
     flexDirection: 'column',
     alignItems: 'center',
-    margin: Layout.Height(14),
   },
 
   font: {
     marginTop: Layout.Height(10),
     marginBottom: Layout.Height(10),
-    fontSize: Fonts.small,
+    fontSize: 14,
     fontWeight: 'bold',
   },
 });

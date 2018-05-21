@@ -6,7 +6,6 @@ import { Tile } from 'react-native-elements';
 import Fonts from '../../../res/fonts';
 import Colors from '../../../res/colors';
 import Layout from '../../../res/dimensions';
-import Icons from '../../../res/icons';
 
 function DiscoveryCard(props) {
   return (
@@ -34,7 +33,7 @@ function DiscoveryCard(props) {
       <View style={styles.cardBottom}>
         <View style={styles.cardBottomPart}>
           <Icon
-            size={Icons.small}
+            size={20}
             name="ios-open-outline"
             color={Colors.iconColorGray}
           />
@@ -42,7 +41,7 @@ function DiscoveryCard(props) {
         </View>
         <View style={styles.cardBottomPart}>
           <Icon
-            size={Icons.small}
+            size={20}
             name="ios-browsers-outline"
             color={Colors.iconColorGray}
           />
@@ -50,7 +49,7 @@ function DiscoveryCard(props) {
         </View>
         <View style={styles.cardBottomPart}>
           <Icon
-            size={Icons.small}
+            size={20}
             name="ios-heart-outline"
             color={Colors.iconColorGray}
           />

@@ -7,10 +7,11 @@ import ArticlesList from './ArticlesList';
 
 import Icons from '../../res/icons';
 import Colors from '../../res/colors';
+import Layout from '../../res/dimensions';
 
 export default class Community extends Component {
   static navigationOptions = {
-    title: '社区',
+    header: null,
     tabBarLabel: '社区',
     tabBarIcon: ({ tintColor, focused }) => (
       <Ionicons
@@ -24,9 +25,11 @@ export default class Community extends Component {
   render() {
     return (
       <ScrollView style={styles.global}>
+
         <TopBar />
 
         <ArticlesList />
+
       </ScrollView>
     );
   }
@@ -34,6 +37,7 @@ export default class Community extends Component {
 
 const styles = StyleSheet.create({
   global: {
+    marginTop: Layout.Height(40),
     backgroundColor: Colors.backgroundColorWhite,
   },
 });

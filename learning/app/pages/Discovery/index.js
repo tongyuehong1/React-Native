@@ -12,56 +12,56 @@ import Various from './Various';
 import RecommendToYou from './RecommendToYou';
 
 import Icons from '../../res/icons';
-import Colors from '../../res/colors';
 import Layout from '../../res/dimensions';
 
 let dispatch;
 
 export default class Discovery extends React.Component {
   static navigationOptions = {
-    headerStyle: { backgroundColor: Colors.backgroundColorWhite },
-    headerLeft:
-  <TouchableOpacity
-    onPress={() => dispatch(Navigator.navigate('Notifications'))}
-  >
-    <View style={{ marginLeft: Layout.Width(40) }}>
-      <Ionicons
-        name="ios-notifications-outline"
-        size={Icons.medium}
-      />
-    </View>
-  </TouchableOpacity>,
-    headerTitle:
-  <TouchableOpacity
-    onPress={() => dispatch(Navigator.navigate('Search'))}
-  >
-    <Badge
-      containerStyle={{
-       backgroundColor: 'whitesmoke',
-       flexDirection: 'row',
-       width: Layout.Width(360),
-       height: Layout.Height(50),
-      }}
-    >
-      <View style={{ marginRight: Layout.Width(20), marginLeft: Layout.Width(-180) }}>
-        <Ionicons
-          name="ios-search"
-          size={Icons.extiny}
-        />
+    header: (
+      <View
+        style={{
+          flexDirection: 'row',
+          marginTop: Layout.Height(20),
+          height: Layout.Height(100),
+          alignItems: 'center',
+        }}
+      >
+
+        <TouchableOpacity
+          onPress={() => dispatch(Navigator.navigate('Notifications'))}
+        >
+          <View style={{ marginHorizontal: Layout.Width(40) }}>
+            <Ionicons
+              name="ios-notifications-outline"
+              size={Icons.medium}
+            />
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => dispatch(Navigator.navigate('Search'))}
+        >
+          <Badge
+            containerStyle={{
+            backgroundColor: '#FFFFFF',
+            flexDirection: 'row',
+            width: Layout.Width(360),
+            height: Layout.Height(50),
+            }}
+          >
+            <View style={{ marginRight: Layout.Width(20), marginLeft: Layout.Width(-180) }}>
+              <Ionicons
+                name="ios-search"
+                size={Icons.extiny}
+              />
+            </View>
+            <Text style={{ color: 'gray' }}>| 搜索 </Text>
+          </Badge>
+        </TouchableOpacity>
       </View>
-      <Text style={{ color: 'gray' }}>| 搜索 </Text>
-    </Badge>
-  </TouchableOpacity>,
-    headerRight:
-  <TouchableOpacity
-    onPress={() => dispatch(Navigator.navigate('Download'))}
-  >
-    <Ionicons
-      name="ios-cloud-download-outline"
-      size={Icons.medium}
-      style={{ marginRight: Layout.Width(40) }}
-    />
-  </TouchableOpacity>,
+    ),
+
     tabBarLabel: '首页',
     tabBarIcon: ({ tintColor, focused }) => (
       <Ionicons

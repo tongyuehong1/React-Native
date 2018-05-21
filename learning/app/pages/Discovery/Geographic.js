@@ -16,7 +16,7 @@ class Geographic extends Component {
       <View>
         <TouchableOpacity style={styles.titleBar}>
           <View style={styles.titleBarLeft}>
-            <Text style={styles.titleBarLeftFont}>看鉴地理</Text>
+            <Text style={styles.titleBarLeftFont}>地理</Text>
           </View>
           <View style={styles.titleBarRight}>
             <Text style={styles.titleBarRightFont}>更多</Text>
