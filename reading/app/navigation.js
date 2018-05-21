@@ -5,6 +5,7 @@ import Bookcase from './pages/bookcase/index';
 import BookcaseFirst from './pages/bookcase/Components/First';
 
 import Classification from './pages/classification/index';
+import Search from './pages/classification/Search';
 import Mine from './pages/mine/index';
 
 const Tabs = TabNavigator({
@@ -27,6 +28,7 @@ const Tabs = TabNavigator({
 const Navigations = {
   Main: { screen: Tabs },
   BookcaseFirst: { screen: BookcaseFirst },
+  Search: { screen: Search },
 };
 
 export default Navigations;

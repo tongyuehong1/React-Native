@@ -9,8 +9,13 @@ import {
 import { connect } from 'react-redux';
 import { Badge } from 'react-native-elements';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
+import Navigator, { dispatcher } from '../../helper/navigator';
+
 import Types from './Types';
 import Layout from '../../res/dimensions';
+
+let dispatch;
 
 class Classification extends Component {
   static navigationOptions = {
@@ -22,7 +27,9 @@ class Classification extends Component {
         flexDirection: 'row',
       }}
       >
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => dispatch(Navigator.navigate('Search'))}
+        >
           <Badge
             containerStyle={{
             backgroundColor: 'whitesmoke',
@@ -50,7 +57,20 @@ class Classification extends Component {
       </View>
     ),
     tabBarLabel: '分类',
+    tabBarIcon: ({ tintColor, focused }) => (
+      <Ionicons
+        name={focused ? 'ios-bulb' : 'ios-bulb-outline'}
+        size={20}
+        style={{ color: tintColor }}
+      />
+    ),
   }
+
+  constructor(props) {
+    super(props);
+    dispatch = dispatcher(this.props);
+  }
+
   render() {
     return (
       <ScrollView style={styles.global}>
