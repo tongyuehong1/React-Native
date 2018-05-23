@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  View,
+  TouchableOpacity,
 } from 'react-native';
 import { connect } from 'react-redux';
 
+import Navigator, { dispatcher } from '../../../helper/navigator';
 import AnnoucementTitle from '../../Teacher/ReleaseAnnouncement/AnnoucementTitle';
 
 import Layout from '../../../res/dimensions';
+
+let dispatch;
 
 class ReleaseAnnouncement extends Component {
   static navigationOptions = {
     header: null,
   }
+  constructor(props) {
+    super(props);
+    dispatch = dispatcher(this.props);
+  }
   render() {
     return (
-      <View style={styles.global}>
+      <TouchableOpacity
+        style={styles.global}
+        onPress={() => dispatch(Navigator.navigate('AnnouncementContent'))}
+      >
         {
           this.props.title.map((item) => {
             return (
@@ -26,7 +36,7 @@ class ReleaseAnnouncement extends Component {
             );
           })
         }
-      </View>
+      </TouchableOpacity>
     );
   }
 }

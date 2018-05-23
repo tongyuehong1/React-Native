@@ -52,7 +52,7 @@ class ManageClassInformation extends Component {
         <View style={styles.class}>
           <Text style={styles.classFont}>班干部</Text>
           <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('TeacherPersonalInformation'))}
+            onPress={() => dispatch(Navigator.navigate('Cadre'))}
           >
             <Text style={styles.edit}>编辑</Text>
           </TouchableOpacity>
@@ -73,7 +73,7 @@ class ManageClassInformation extends Component {
         <View style={styles.class}>
           <Text style={styles.classFont}>同学</Text>
           <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('TeacherPersonalInformation'))}
+            onPress={() => dispatch(Navigator.navigate('Mate'))}
           >
             <Text style={styles.edit}>编辑</Text>
           </TouchableOpacity>
