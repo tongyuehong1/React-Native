@@ -33,3 +33,11 @@
 }
 
 @end
+
+#import <AVFoundation/AVFoundation.h>  // import
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+  ...
+  [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];  // allow
+  ...
+}
