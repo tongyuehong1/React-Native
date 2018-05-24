@@ -25,12 +25,8 @@ export default class MapTypesExample extends Component {
         <TouchableOpacity
           onPress={() => dispatch(Navigator.navigate('Map'))}
         >
-          <Text style={styles.font}>地图路况</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => dispatch(Navigator.navigate('Route'))}
-        >
-          <Text style={styles.font}>交通导航</Text>
+          <Text style={styles.fontTitle}>徐基欣毕设</Text>
+          <Text style={styles.fontContent}>基于Android终端实时路况共享平台的设计与实现</Text>
         </TouchableOpacity>
       </View>
     );
@@ -43,8 +39,15 @@ const styles = StyleSheet.create({
     width: Layout.Width(600),
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: Layout.Width(40),
   },
-  font: {
-    fontSize: 40,
+  fontTitle: {
+    fontSize: 30,
+    lineHeight: 60,
+    color: '#FA8072',
+  },
+  fontContent: {
+    fontSize: 20,
+    color: '#00BFFF',
   },
 });
