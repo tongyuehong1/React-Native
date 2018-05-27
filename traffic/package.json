@@ -11,6 +11,7 @@
     "dva": "^2.2.3",
     "react": "16.3.1",
     "react-native": "0.55.3",
+    "react-native-amap-geolocation": "^0.3.0",
     "react-native-amap3d": "^1.0.0-beta.1",
     "react-native-elements": "^0.19.1",
     "react-native-vector-icons": "^4.6.0",
