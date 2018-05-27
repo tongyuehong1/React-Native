@@ -6,13 +6,12 @@ import {
   Text,
   Image,
   Picker,
+  TextInput,
   TouchableOpacity,
 } from 'react-native';
 import { Button } from 'react-native-elements';
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import { Sae } from 'react-native-textinput-effects';
-import Navigator, { dispatcher } from '../helper/navigator';
 
+import Navigator, { dispatcher } from '../helper/navigator';
 import Layout from '../res/dimensions';
 
 let dispatch;
@@ -21,14 +20,29 @@ export default class Index extends Component {
   static navigationOptions = {
     header: null,
   }
+
   constructor(props) {
     super(props);
-    this.state = {
-      LoginMode: 'student',
-      SelectTheClass: null,
-    };
     dispatch = dispatcher(this.props);
+    this.state = {
+      loginMode: '学生登录',
+      specialities: '计算机专业',
+      name: '',
+      pass: '',
+    };
   }
+
+  handleSubmit = () => {
+    fetch('http://192.168.0.108:8080/user/login', {//eslint-disable-line
+      method: 'POST',
+      body: JSON.stringify({
+        specialities: this.state.specialities,
+        name: this.state.name,
+        pass: this.state.pass,
+      }),
+    });
+  }
+
   render() {
     return (
       <ScrollView style={styles.global}>
@@ -39,72 +53,68 @@ export default class Index extends Component {
           />
         </View>
 
-        <View style={styles.input}>
-          <Picker
-            selectedValue={this.state.LoginMode}
-            onValueChange={lang => this.setState({ LoginMode: lang })}
-            prompt="选择登录方式"
-            mode="dialog"
-          >
-            <Picker.Item label="学生登录" value="student" />
-            <Picker.Item label="教师登录" value="teacher" />
-          </Picker>
+        <Picker
+          selectedValue={this.state.loginMode}
+          onValueChange={lang => this.setState({ loginMode: lang })}
+          prompt="选择登录方式"
+          mode="dialog"
+        >
+          <Picker.Item label="学生登录" value="student" />
+          <Picker.Item label="教师登录" value="teacher" />
+        </Picker>
+
+        <Picker
+          selectedValue={this.state.specialities}
+          onValueChange={lang => this.setState({ specialities: lang })}
+          prompt="选择所在专业"
+          mode="dialog"
+        >
+          <Picker.Item label="计算机专业" value="计算机专业" />
+          <Picker.Item label="电信专业" value="电信专业" />
+          <Picker.Item label="软件专业" value="软件专业" />
+          <Picker.Item label="通信专业" value="通信专业" />
+          <Picker.Item label="网络专业" value="网络专业" />
+        </Picker>
+
+        <View>
+          <View style={styles.textInput}>
+            <Text style={styles.textInputFont}>用户名</Text>
+            <TextInput
+              underlineColorAndroid="transparent"
+              style={styles.textInputStyle}
+              value={this.state.name}
+              onChangeText={(name) => { this.setState({ name }); }}
+            />
+          </View>
+          <View style={styles.textInput}>
+            <Text style={styles.textInputFont}>密码</Text>
+            <TextInput
+              password="ture"
+              underlineColorAndroid="transparent"
+              style={styles.textInputStyle}
+              value={this.state.pass}
+              onChangeText={(pass) => { this.setState({ pass }); }}
+            />
+          </View>
         </View>
 
-        <View style={styles.asdf}>
-          <Picker
-            selectedValue={this.state.SelectTheClass}
-            onValueChange={lang => this.setState({ SelectTheClass: lang })}
-            prompt="选择所在班级"
-            mode="dialog"
-          >
-            <Picker.Item label="计算机14k1班" value="计算机14k1班" />
-            <Picker.Item label="计算机14k2班" value="计算机14k2班" />
-            <Picker.Item label="电信14k1班" value="电信14k1班" />
-            <Picker.Item label="电信14k2班" value="电信14k2班" />
-            <Picker.Item label="软件14k1班" value="软件14k1班" />
-            <Picker.Item label="软件14k2班" value="软件14k2班" />
-            <Picker.Item label="通信14k1班" value="通信14k1班" />
-            <Picker.Item label="通信14k2班" value="通信14k2班" />
-            <Picker.Item label="网络14k1班" value="网络14k1班" />
-            <Picker.Item label="网络14k2班" value="网络14k2班" />
-          </Picker>
+        <Button
+          onPress={this.handleSubmit}
+          title="登录"
+          titleStyle={{ fontWeight: "700" }}
+          buttonStyle={{
+            backgroundColor: "#F08080",
+            height: 45,
+            borderColor: "transparent",
+            borderRadius: 5,
+            marginTop: Layout.Height(60),
+          }}
+          containerStyle={{ marginTop: 20 }}
+        />
 
-          <Sae
-            label="用户名"
-            labelStyle={{ color: '#F08080' }}
-            inputStyle={{ color: '#000000' }}
-            iconClass={FontAwesomeIcon}
-            iconName="pencil"
-            iconColor="#F08080"
-          />
-          <Sae
-            label="密码"
-            labelStyle={{ color: '#F08080' }}
-            inputStyle={{ color: '#000000' }}
-            iconClass={FontAwesomeIcon}
-            iconName="pencil"
-            iconColor="#F08080"
-          />
-        </View>
-
-        <View style={styles.button}>
-          <Button
-            onPress={this.state.LoginMode === 'student' ? () => dispatch(Navigator.navigate('Student')) : () => dispatch(Navigator.navigate('Teacher'))}
-            title="登录"
-            titleStyle={{ fontWeight: "700" }}
-            buttonStyle={{
-              backgroundColor: "#F08080",
-              height: 45,
-              borderColor: "transparent",
-              borderRadius: 5,
-            }}
-            containerStyle={{ marginTop: 20 }}
-          />
-        </View>
         <TouchableOpacity
-          onPress={() => dispatch(Navigator.navigate('Register'))}
           style={styles.registered}
+          onPress={() => dispatch(Navigator.navigate('Register'))}
         >
           <Text style={styles.registeredFont}>没有账号？点击这里注册</Text>
         </TouchableOpacity>
@@ -114,13 +124,11 @@ export default class Index extends Component {
 }
 
 const styles = StyleSheet.create({
-  asdf: {
-    paddingHorizontal: Layout.Width(80),
-  },
   global: {
     height: Layout.Height(1000),
     width: Layout.Width(600),
     backgroundColor: '#FFFFFF',
+    paddingHorizontal: Layout.Width(80),
   },
   imagePosition: {
     marginVertical: Layout.Height(40),
@@ -128,15 +136,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   imageSize: {
-    height: Layout.Height(260),
-    width: Layout.Width(260),
+    height: Layout.Height(200),
+    width: Layout.Width(200),
   },
-  input: {
-    paddingHorizontal: Layout.Width(80),
+  textInput: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: Layout.Height(40),
   },
-  button: {
-    marginTop: Layout.Height(80),
-    paddingHorizontal: Layout.Width(80),
+  textInputFont: {
+    fontSize: 18,
+    color: '#000000',
+  },
+  textInputStyle: {
+    padding: 0,
+    width: Layout.Width(300),
+    borderBottomWidth: 1,
+    borderColor: '#F08080',
   },
   registered: {
     marginVertical: Layout.Height(20),
