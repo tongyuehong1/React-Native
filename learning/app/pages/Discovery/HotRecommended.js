@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
-import VideoPlayer from 'react-native-video-controls';
 
 import Card from './Components/Card';
 
@@ -29,18 +28,6 @@ class HotRecommended extends Component {
             />
           </View>
         </TouchableOpacity>
-
-        <View style={styles.container}>
-          <VideoPlayer
-            source={{ uri: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4' }}
-            disableVolume
-            disableBack
-            disableSeekbar
-            disableFullscreen
-            paused
-            resizeMode="cover"
-          />
-        </View>
         <Card item={this.props.hotVideo[0]} />
       </View>
     );
