@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import { MapView } from 'react-native-amap3d';
 
-
 import Navigator, { dispatcher } from '../helper/navigator';
 
 import Layout from '../res/dimensions';
