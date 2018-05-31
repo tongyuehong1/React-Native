@@ -12,10 +12,9 @@ import {
 import { Button } from 'react-native-elements';
 
 import Navigator, { dispatcher } from '../helper/navigator';
+import { createAction } from '../helper';
 import Layout from '../res/dimensions';
 // import logins from '../res/request';
-
-let dispatch;
 
 export default class Index extends Component {
   static navigationOptions = {
@@ -24,23 +23,24 @@ export default class Index extends Component {
 
   constructor(props) {
     super(props);
-    dispatch = dispatcher(this.props);
     this.state = {
-      loginMode: '学生登录',
-      specialities: '计算机专业',
+      loginMode: 'student',
+      className: '计算机专业',
       name: '',
       pass: '',
     };
   }
 
   handleSubmit = async () => {
+    const dispatch = dispatcher(this.props);
+
     try {
-      let res = await fetch('http://192.168.0.104:8080/user/login', {//eslint-disable-line
+      let res = await fetch('http://10.0.0.43:8080/user/login', {//eslint-disable-line
         method: 'POST',
         mode: 'cors',
         credentials: 'include',
         body: JSON.stringify({
-          specialities: this.state.specialities,
+          className: this.state.className,
           name: this.state.name,
           pass: this.state.pass,
         }),
@@ -48,7 +48,12 @@ export default class Index extends Component {
       const data = await res.json();
       console.log('data: ', data);
       if (data.status === 0) {
-        dispatch(Navigator.navigate('Teacher'));
+        dispatch(createAction('state/saveClass')(data));
+        if (this.state.loginMode === 'student') {
+          dispatch(Navigator.navigate('Student'));
+        } else {
+          dispatch(Navigator.navigate('Teacher'));
+        }
       }
     } catch (e) {
       console.log(`error: ${e}`);
@@ -76,8 +81,8 @@ export default class Index extends Component {
         </Picker>
 
         <Picker
-          selectedValue={this.state.specialities}
-          onValueChange={lang => this.setState({ specialities: lang })}
+          selectedValue={this.state.className}
+          onValueChange={lang => this.setState({ className: lang })}
           prompt="选择所在专业"
           mode="dialog"
         >
@@ -126,7 +131,6 @@ export default class Index extends Component {
 
         <TouchableOpacity
           style={styles.registered}
-          onPress={() => dispatch(Navigator.navigate('Teacher'))}
         >
           <Text style={styles.registeredFont}>没有账号？点击这里注册</Text>
         </TouchableOpacity>

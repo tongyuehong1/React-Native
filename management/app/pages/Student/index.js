@@ -6,20 +6,43 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
+import { connect } from 'react-redux';
 import { Icon } from 'react-native-elements';
+
 import Navigator, { dispatcher } from '../../helper/navigator';
+import { createAction } from '../../helper';
 
 import Layout from '../../res/dimensions';
 
 let dispatch;
 
-export default class Student extends Component {
+class Student extends Component {
   static navigationOptions = {
     header: null,
   }
   constructor(props) {
     super(props);
     dispatch = dispatcher(this.props);
+  }
+
+  onLoadOridary = async () => {
+    try {
+      console.log(`liuqi sb ${this.props.className}`);
+      let res = await fetch('http://10.0.0.43:8080/student/getall', {//eslint-disable-line
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'include',
+        body: JSON.stringify({
+          specialities: this.props.className,
+        }),
+      });
+      const data = await res.json();
+      console.log('data: ', data);
+      dispatch(createAction('classInformation/saveStudents')(data));
+    } catch (e) {
+      console.log(`error: ${e}`);
+    }
+    dispatch(Navigator.navigate('ClassInformation'));
   }
   render() {
     return (
@@ -44,7 +67,7 @@ export default class Student extends Component {
             <Text style={styles.cardName}>个人信息</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('ClassInformation'))}
+            onPress={this.onLoadOridary}
             style={styles.card}
           >
             <Icon
@@ -55,7 +78,7 @@ export default class Student extends Component {
               type="ionicon"
               color="#00aced"
             />
-            <Text style={styles.cardName}>查看同学信息</Text>
+            <Text style={styles.cardName}>查看班级信息</Text>
           </TouchableOpacity>
         </View>
 
@@ -131,3 +154,8 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
 });
+
+export default connect(({ classInformation, state }) => ({
+  ...classInformation,
+  ...state,
+}))(Student);

@@ -9,8 +9,6 @@ import Scores from './pages/Student/Scores/index';
 import Teacher from './pages/Teacher/index';
 import TeacherPersonalInformation from './pages/Teacher/PersonalInformation/index';
 import ManageClassInformation from './pages/Teacher/ManageClassInformation/index';
-import Cadre from './pages/Teacher/ManageClassInformation/Cadre';
-import Mate from './pages/Teacher/ManageClassInformation/Mate';
 import ReleaseAnnouncement from './pages/Teacher/ReleaseAnnouncement/index';
 import AnnouncementContent from './pages/Teacher/ReleaseAnnouncement/AnnouncementContent';
 import ScoreEntry from './pages/Teacher/ScoreEntry/index';
@@ -28,8 +26,6 @@ const Navigations = {
 
   Teacher: { screen: Teacher },
   ManageClassInformation: { screen: ManageClassInformation },
-  Cadre: { screen: Cadre },
-  Mate: { screen: Mate },
   TeacherPersonalInformation: { screen: TeacherPersonalInformation },
   ReleaseAnnouncement: { screen: ReleaseAnnouncement },
   AnnouncementContent: { screen: AnnouncementContent },

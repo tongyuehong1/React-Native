@@ -2,14 +2,10 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  View,
+  TouchableOpacity,
   ScrollView,
 } from 'react-native';
 import { connect } from 'react-redux';
-
-import TheTeacherInCharge from '../../Teacher/ManageClassInformation/TheTeacherInCharge';
-import ClassCadre from '../../Teacher/ManageClassInformation/ClassCadre';
-import Classmate from '../../Teacher/ManageClassInformation/Classmate';
 
 import Layout from '../../../res/dimensions';
 
@@ -17,56 +13,16 @@ class ManageClassInformation extends Component {
   static navigationOptions = {
     header: null,
   }
+
   render() {
     return (
       <ScrollView>
-        <View style={styles.class}>
+        <TouchableOpacity
+          style={styles.class}
+          onPress={() => {}}
+        >
           <Text style={styles.classFont}>班主任</Text>
-        </View>
-        <View style={styles.card}>
-          {
-            this.props.theTeacherInCharge.map((item) => {
-              return (
-                <TheTeacherInCharge
-                  key={item.id}
-                  item={item}
-                />
-              );
-            })
-          }
-        </View>
-
-        <View style={styles.class}>
-          <Text style={styles.classFont}>班干部</Text>
-        </View>
-        <View style={styles.card}>
-          {
-            this.props.classCadre.map((item) => {
-              return (
-                <ClassCadre
-                  key={item.id}
-                  item={item}
-                />
-              );
-            })
-          }
-        </View>
-
-        <View style={styles.class}>
-          <Text style={styles.classFont}>同学</Text>
-        </View>
-        <View style={styles.card}>
-          {
-            this.props.ordinary.map((item) => {
-              return (
-                <Classmate
-                  key={item.id}
-                  item={item}
-                />
-              );
-            })
-          }
-        </View>
+        </TouchableOpacity>
       </ScrollView>
     );
   }
@@ -96,6 +52,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(({ classInformation }) => ({
+export default connect(({ classInformation, state }) => ({
   ...classInformation,
+  ...state,
 }))(ManageClassInformation);

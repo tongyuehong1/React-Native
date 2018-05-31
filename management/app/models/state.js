@@ -4,6 +4,7 @@ export default {
   namespace: 'state',
   state: {
     student: true,
+    className: '',
   },
   effects: {
     * switchToStudent(payload, { put }) {
@@ -12,10 +13,12 @@ export default {
     * switchToTeacher(payload, { put }) {
       yield put(createAction('update')({ student: false }));
     },
+
+    * saveClass({ payload }, { put }) {
+      yield put(createAction('update')({ className: payload.data }));
+    },
   },
   reducers: {
-  },
-  subscriptions: {
     update(state, { payload }) {
       return { ...state, ...payload };
     },

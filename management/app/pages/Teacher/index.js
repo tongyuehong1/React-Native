@@ -6,14 +6,17 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
+import { connect } from 'react-redux';
 import { Icon } from 'react-native-elements';
+
 import Navigator, { dispatcher } from '../../helper/navigator';
+import { createAction } from '../../helper';
 
 import Layout from '../../res/dimensions';
 
 let dispatch;
 
-export default class Student extends Component {
+class Student extends Component {
   static navigationOptions = {
     header: null,
   }
@@ -21,6 +24,27 @@ export default class Student extends Component {
     super(props);
     dispatch = dispatcher(this.props);
   }
+
+  onLoadOridary = async () => {
+    try {
+      console.log(`liuqi sb ${this.props.className}`);
+      let res = await fetch('http://10.0.0.43:8080/student/getall', {//eslint-disable-line
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'include',
+        body: JSON.stringify({
+          className: this.props.className,
+        }),
+      });
+      const data = await res.json();
+      console.log('data: ', data);
+      dispatch(createAction('classInformation/saveStudents')(data));
+    } catch (e) {
+      console.log(`error: ${e}`);
+    }
+    dispatch(Navigator.navigate('ManageClassInformation'));
+  }
+
   render() {
     return (
       <ScrollView style={styles.global}>
@@ -43,8 +67,9 @@ export default class Student extends Component {
             />
             <Text style={styles.cardName}>个人信息</Text>
           </TouchableOpacity>
+
           <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('ManageClassInformation'))}
+            onPress={this.onLoadOridary}
             style={styles.card}
           >
             <Icon
@@ -61,7 +86,7 @@ export default class Student extends Component {
 
         <View style={styles.arrangement}>
           <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('ReleaseAnnouncement'))}
+            onPress={this.onLoadOridary}
             style={styles.card}
           >
             <Icon
@@ -74,6 +99,7 @@ export default class Student extends Component {
             />
             <Text style={styles.cardName}>发布班级公告</Text>
           </TouchableOpacity>
+
           <TouchableOpacity
             style={styles.card}
             onPress={() => dispatch(Navigator.navigate('ScoreEntry'))}
@@ -131,3 +157,8 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
 });
+
+export default connect(({ classInformation, state }) => ({
+  ...classInformation,
+  ...state,
+}))(Student);

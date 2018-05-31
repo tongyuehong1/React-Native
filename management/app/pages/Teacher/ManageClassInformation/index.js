@@ -4,37 +4,24 @@ import {
   Text,
   View,
   ScrollView,
-  TouchableOpacity,
 } from 'react-native';
 import { connect } from 'react-redux';
 
-import Navigator, { dispatcher } from '../../../helper/navigator';
 import TheTeacherInCharge from './TheTeacherInCharge';
 import ClassCadre from './ClassCadre';
 import Classmate from './Classmate';
 
 import Layout from '../../../res/dimensions';
 
-let dispatch;
-
 class ManageClassInformation extends Component {
   static navigationOptions = {
     header: null,
-  }
-  constructor(props) {
-    super(props);
-    dispatch = dispatcher(this.props);
   }
   render() {
     return (
       <ScrollView>
         <View style={styles.class}>
           <Text style={styles.classFont}>班主任</Text>
-          <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('TeacherPersonalInformation'))}
-          >
-            <Text style={styles.edit}>编辑</Text>
-          </TouchableOpacity>
         </View>
         <View style={styles.card}>
           {
@@ -51,18 +38,13 @@ class ManageClassInformation extends Component {
 
         <View style={styles.class}>
           <Text style={styles.classFont}>班干部</Text>
-          <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('Cadre'))}
-          >
-            <Text style={styles.edit}>编辑</Text>
-          </TouchableOpacity>
         </View>
         <View style={styles.card}>
           {
             this.props.classCadre.map((item) => {
               return (
                 <ClassCadre
-                  key={item.id}
+                  key={`student${item.id}`}
                   item={item}
                 />
               );
@@ -72,18 +54,14 @@ class ManageClassInformation extends Component {
 
         <View style={styles.class}>
           <Text style={styles.classFont}>同学</Text>
-          <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('Mate'))}
-          >
-            <Text style={styles.edit}>编辑</Text>
-          </TouchableOpacity>
         </View>
         <View style={styles.card}>
           {
             this.props.ordinary.map((item) => {
+              console.log(`student: ${JSON.stringify(item)}`);
               return (
                 <Classmate
-                  key={item.id}
+                  key={`student${item.id}`}
                   item={item}
                 />
               );
@@ -119,6 +97,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(({ classInformation }) => ({
+export default connect(({ classInformation, state }) => ({
   ...classInformation,
+  ...state,
 }))(ManageClassInformation);
