@@ -13,6 +13,7 @@ import { Button } from 'react-native-elements';
 
 import Navigator, { dispatcher } from '../helper/navigator';
 import Layout from '../res/dimensions';
+// import logins from '../res/request';
 
 let dispatch;
 
@@ -32,15 +33,26 @@ export default class Index extends Component {
     };
   }
 
-  handleSubmit = () => {
-    fetch('http://192.168.0.108:8080/user/login', {//eslint-disable-line
-      method: 'POST',
-      body: JSON.stringify({
-        specialities: this.state.specialities,
-        name: this.state.name,
-        pass: this.state.pass,
-      }),
-    });
+  handleSubmit = async () => {
+    try {
+      let res = await fetch('http://192.168.0.104:8080/user/login', {//eslint-disable-line
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'include',
+        body: JSON.stringify({
+          specialities: this.state.specialities,
+          name: this.state.name,
+          pass: this.state.pass,
+        }),
+      });
+      const data = await res.json();
+      console.log('data: ', data);
+      if (data.status === 0) {
+        dispatch(Navigator.navigate('Teacher'));
+      }
+    } catch (e) {
+      console.log(`error: ${e}`);
+    }
   }
 
   render() {
@@ -114,7 +126,7 @@ export default class Index extends Component {
 
         <TouchableOpacity
           style={styles.registered}
-          onPress={() => dispatch(Navigator.navigate('Register'))}
+          onPress={() => dispatch(Navigator.navigate('Teacher'))}
         >
           <Text style={styles.registeredFont}>没有账号？点击这里注册</Text>
         </TouchableOpacity>

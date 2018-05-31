@@ -6,11 +6,8 @@ import {
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import { Madoka } from 'react-native-textinput-effects';
-import Navigator, { dispatcher } from '../helper/navigator';
 
 import Layout from '../res/dimensions';
-
-let dispatch;
 
 export default class Register extends Component {
   static navigationOptions = {
@@ -19,7 +16,6 @@ export default class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    dispatch = dispatcher(this.props);
   }
   render() {
     return (
