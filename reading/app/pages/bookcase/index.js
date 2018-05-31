@@ -35,17 +35,17 @@ class Bookcase extends Component {
         </View>
         <View style={styles.bookLine}>
           <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('BookcaseFirst'))}
+            onPress={() => dispatch(Navigator.navigate('BookInterface'))}
           >
             <Book item={this.props.book[0]} />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('BookcaseFirst'))}
+            onPress={() => dispatch(Navigator.navigate('BookInterface'))}
           >
             <Book item={this.props.book[1]} />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('BookcaseFirst'))}
+            onPress={() => dispatch(Navigator.navigate('BookInterface'))}
           >
             <Book item={this.props.book[2]} />
           </TouchableOpacity>

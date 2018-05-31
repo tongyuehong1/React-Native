@@ -2,7 +2,7 @@
 import { TabNavigator } from 'react-navigation';
 
 import Bookcase from './pages/bookcase/index';
-import BookcaseFirst from './pages/bookcase/Components/First';
+import BookInterface from './pages/bookInterface/entry';
 
 import Classification from './pages/classification/index';
 import Search from './pages/classification/Search';
@@ -27,7 +27,7 @@ const Tabs = TabNavigator({
 
 const Navigations = {
   Main: { screen: Tabs },
-  BookcaseFirst: { screen: BookcaseFirst },
+  BookInterface: { screen: BookInterface },
   Search: { screen: Search },
 };
 
