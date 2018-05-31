@@ -14,16 +14,20 @@ const everyDayRead = DrawerNavigator(
     },
   },
   {
-    contentComponent: props => {
+    contentComponent: props => {//eslint-disable-line
       return (
         <ScrollView>
           <View style={{ height: 200, alignItems: 'center', justifyContent: 'center', }}>
-            <Image style={{ height: 110, width: 200 }} resizeMode={"stretch"} source={require('./res/images/head.png')} />
+            <Image
+              style={{ height: 110, width: 200 }}
+              resizeMode={"stretch"}//eslint-disable-line
+              source={require('./res/images/head.png')}
+            />
           </View>
           <DrawerItems {...props} />
         </ScrollView>
-      )
-    }
+      )//eslint-disable-line
+    }//eslint-disable-line
   },
 );
 

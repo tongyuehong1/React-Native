@@ -3,16 +3,14 @@ import {
   StyleSheet,
   Text,
   View,
+  TouchableOpacity,
 } from 'react-native';
-import { Avatar } from 'react-native-elements';
-import { connect } from 'react-redux';
-
-import Notification from './Notification';
+import { Avatar, Icon } from 'react-native-elements';
 
 import Layout from '../../res/dimensions';
 import Color from '../../res/colors';
 
-class Mine extends Component {
+export default class Mine extends Component {
   static navigationOptions = {
     header: null,
     tabBarLabel: '个人',
@@ -25,7 +23,7 @@ class Mine extends Component {
             <Avatar
               xlarge
               rounded
-              source={require('../../assets/images/YanTianze.jpg')}
+              source={require('../../assets/images/YanTianze.jpg')}//eslint-disable-line
               onPress={() => {}}
               activeOpacity={0.7}
             />
@@ -38,17 +36,16 @@ class Mine extends Component {
             </View>
           </View>
         </View>
-        {
-          this.props.notification.map((item) => {
-            return (
-              <Notification
-                key={item.id}
-                item={item}
-              />
-            );
-          })
-        }
-        <View style={{ height: Layout.Height(300), backgroundColor: '#FFFFFF' }} />
+        <TouchableOpacity style={styles.notification}>
+          <Icon
+            size={30}
+            name="ios-cloud-download-outline"
+            type="ionicon"
+            color="#808080" //gray
+            marginHorizontal={Layout.Width(30)}
+          />
+          <Text style={styles.notificationFont}>我的下载</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -57,7 +54,6 @@ class Mine extends Component {
 const styles = StyleSheet.create({
   personal: {
     backgroundColor: Color.backgroundBasicColor,
-    marginBottom: Layout.Height(10),
     paddingTop: Layout.Height(60),
   },
   editor: {
@@ -79,8 +75,14 @@ const styles = StyleSheet.create({
     marginTop: Layout.Height(10),
     flexDirection: 'row',
   },
+  notification: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: Layout.Height(40),
+    backgroundColor: '#F5DEB3',
+  },
+  notificationFont: {
+    fontSize: 20,
+    color: '#000000',
+  },
 });
-
-export default connect(({ mine }) => ({
-  ...mine,
-}))(Mine);

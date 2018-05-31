@@ -28,6 +28,7 @@ const Tabs = TabNavigator({
 const Navigations = {
   Main: { screen: Tabs },
   BookInterface: { screen: BookInterface },
+
   Search: { screen: Search },
 };
 
