@@ -6,13 +6,14 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import { connect } from 'react-redux';
 import { Badge } from 'react-native-elements';
+import { connect } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Navigator, { dispatcher } from '../../helper/navigator';
 
 import Types from './Types';
+
 import Layout from '../../res/dimensions';
 
 let dispatch;
@@ -48,12 +49,12 @@ class Classification extends Component {
             <Text style={{ color: 'gray' }}>搜索</Text>
           </Badge>
         </TouchableOpacity>
-        <TouchableOpacity style={{ marginLeft: Layout.Width(30) }}>
+        {/* <TouchableOpacity style={{ marginLeft: Layout.Width(30) }}>
           <Ionicons
             name="ios-qr-scanner"
             size={30}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     ),
     tabBarLabel: '分类',
@@ -78,7 +79,7 @@ class Classification extends Component {
           this.props.types.map((item) => {
             return (
               <Types
-                key={item.id}
+                key={`student${item.id}`}
                 item={item}
               />
             );

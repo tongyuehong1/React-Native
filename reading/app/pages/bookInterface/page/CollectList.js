@@ -35,8 +35,8 @@ const collectItemStyle = StyleSheet.create({
 import DaoArticle from '../expand/dao/DaoArticle'
 export default class AnimPage extends Component {
   static navigationOptions = {
-    header: null,
-  }
+    title: 'Details',
+  };
   componentDidMount(){
     DaoArticle.getCollectArticle().then((value)=>{
       this.setState({

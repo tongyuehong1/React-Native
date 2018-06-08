@@ -7,7 +7,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { connect } from 'react-redux';
+
 import Book from './Book';
+
 import Navigator, { dispatcher } from '../../helper/navigator';
 import Layout from '../../res/dimensions';
 
@@ -33,43 +35,15 @@ class Bookcase extends Component {
             严天泽电子书阅读app，简称：严阅。
           </Text>
         </View>
+
         <View style={styles.bookLine}>
           <TouchableOpacity
             onPress={() => dispatch(Navigator.navigate('BookInterface'))}
           >
             <Book item={this.props.book[0]} />
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('BookInterface'))}
-          >
-            <Book item={this.props.book[1]} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => dispatch(Navigator.navigate('BookInterface'))}
-          >
-            <Book item={this.props.book[2]} />
-          </TouchableOpacity>
         </View>
-        <View style={styles.bookLine}>
-          <Book item={this.props.book[3]} />
-          <Book item={this.props.book[4]} />
-          <Book item={this.props.book[5]} />
-        </View>
-        <View style={styles.bookLine}>
-          <Book item={this.props.book[6]} />
-          <Book item={this.props.book[7]} />
-          <Book item={this.props.book[8]} />
-        </View>
-        <View style={styles.bookLine}>
-          <Book item={this.props.book[9]} />
-          <Book item={this.props.book[10]} />
-          <Book item={this.props.book[11]} />
-        </View>
-        <View style={styles.bookLine}>
-          <Book item={this.props.book[12]} />
-          <Book item={this.props.book[13]} />
-          <Book item={this.props.book[14]} />
-        </View>
+
       </ScrollView>
     );
   }
@@ -93,7 +67,7 @@ const styles = StyleSheet.create({
   bookLine: {
     marginBottom: Layout.Height(20),
     paddingHorizontal: Layout.Width(20),
-    justifyContent: 'space-around',
+    marginLeft: Layout.Width(20),
     flexDirection: 'row',
   },
 });

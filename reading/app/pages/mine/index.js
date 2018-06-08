@@ -5,7 +5,7 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import { Avatar, Icon } from 'react-native-elements';
+import { Avatar } from 'react-native-elements';
 
 import Layout from '../../res/dimensions';
 import Color from '../../res/colors';
@@ -31,20 +31,20 @@ export default class Mine extends Component {
               <Text style={styles.nameStyle}>严天泽</Text>
             </View>
             <View style={styles.time}>
-              <Text>阅读时长：</Text>
-              <Text style={{ color: '#D2691E' }}>162小时22分钟</Text>
+              <Text>个性签名：</Text>
+              <Text style={{ color: '#D2691E' }}>爱阅读，爱生活</Text>
             </View>
           </View>
         </View>
         <TouchableOpacity style={styles.notification}>
-          <Icon
+          {/* <Icon
             size={30}
             name="ios-cloud-download-outline"
             type="ionicon"
             color="#808080" //gray
             marginHorizontal={Layout.Width(30)}
-          />
-          <Text style={styles.notificationFont}>我的下载</Text>
+          /> */}
+          <Text style={styles.notificationFont}>我的收藏</Text>
         </TouchableOpacity>
       </View>
     );

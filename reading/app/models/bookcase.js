@@ -4,8 +4,8 @@ export default {
     book: [{
       id: 1,
       image: 'http://bookbk.img.ireader.com/group6/M00/D7/C9/CmQUN1jdPgaEJaL8AAAAAERhiWg148316621.jpg?v=2tIvhN7R',
-      name: '全世界只有你不知道',
-      author: '殷谦',
+      name: '油月亮',
+      author: '贾平凹',
     }, {
       id: 2,
       image: 'http://book.img.ireader.com/group6/M00/D8/8D/CmQUNljdRQ-EKM-tAAAAAP4UGSU701467998.jpg?v=5L7hCThO',
