@@ -57,10 +57,6 @@ export default class Membership extends Component {
 
         <View style={styles.content}>
           <View style={styles.contentPart}>
-            <Text style={styles.contentPartNumber}>0</Text>
-            <Text style={styles.contentPartFont}>发表观点</Text>
-          </View>
-          <View style={styles.contentPart}>
             <Text style={styles.contentPartNumber}>3</Text>
             <Text style={styles.contentPartFont}>已购专辑</Text>
           </View>

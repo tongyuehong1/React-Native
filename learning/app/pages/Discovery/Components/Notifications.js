@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { Icon } from 'react-native-elements';
 
 import Layout from '../../../res/dimensions';
 
@@ -11,27 +10,24 @@ class Classic extends Component {
 
   render() {
     return (
-      <View
-        style={styles.liuqi}
-      >
-        <View>
-          <Text style={styles.text}>阿斯蒂芬</Text>
-          <Icon name="rocket" size={30} color="#900" />
-        </View>
+      <View style={styles.global}>
+        <Text style={styles.text}>暂无消息呦</Text>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  topBar: {
-    flexDirection: 'row',
+  global: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    height: Layout.Height(1138),
+    width: Layout.Width(640),
   },
-
-  underline: {
-    backgroundColor: "#F08080",
-    width: Layout.Width(40),
-    marginLeft: Layout.Width(134),
+  text: {
+    fontSize: 40,
+    color: '#808080',
   },
 });
 export default Classic;

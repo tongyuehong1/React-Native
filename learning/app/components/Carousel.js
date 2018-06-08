@@ -21,7 +21,7 @@ export default (props) => {
         loop
         autoplayDelay={1000}
         autoplayInterval={2000}
-        data={props.slides}
+        data={props.image}
         renderItem={renderSlide}
         sliderWidth={Layout.ScreenWidth}
         itemWidth={Layout.ScreenWidth}

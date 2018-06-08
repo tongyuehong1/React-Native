@@ -43,7 +43,7 @@ export default class Feedback extends Component {
             name="ios-git-merge"
             type="ionicon"
           />
-          <Text style={styles.font}>分享看鉴</Text>
+          <Text style={styles.font}>分享app</Text>
         </View>
 
         <View style={styles.content}>
@@ -52,14 +52,6 @@ export default class Feedback extends Component {
             type="ionicon"
           />
           <Text style={styles.font}>意见反馈</Text>
-        </View>
-
-        <View style={styles.content}>
-          <Icon
-            name="ios-star-outline"
-            type="ionicon"
-          />
-          <Text style={styles.font}>给个好评</Text>
         </View>
       </View>
     );

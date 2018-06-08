@@ -41,9 +41,9 @@ export default class Top extends Component {
     return (
       <View style={styles.global}>
         <Avatar
-          large
+          xlarge
           rounded
-          source={{ uri: "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg" }}
+          source={{ uri: "https://www.wsm.cn/uploads/allimg/170911/26-1F911144147.jpg" }}
           onPress={() => console.log("Works!")} //eslint-disable-line
           activeOpacity={0.7}
         />

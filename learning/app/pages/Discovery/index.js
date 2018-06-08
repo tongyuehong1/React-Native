@@ -1,9 +1,12 @@
 import React from 'react';
-import { ScrollView, Image, StyleSheet, View, Text, RefreshControl, TouchableOpacity } from 'react-native';
+import { ScrollView, StyleSheet, View, Text, RefreshControl, TouchableOpacity } from 'react-native';
 import { Badge } from 'react-native-elements';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { connect } from 'react-redux';
 
 import Navigator, { dispatcher } from '../../helper/navigator';
+
+import Carousel from '../../components/Carousel';
 import Slidebar from './SlideBar/index';
 import HotRecommend from './HotRecommended';
 import HumanHistory from './HumanHistory';
@@ -16,7 +19,7 @@ import Layout from '../../res/dimensions';
 
 let dispatch;
 
-export default class Discovery extends React.Component {
+class Discovery extends React.Component {
   static navigationOptions = {
     header: (
       <View
@@ -108,12 +111,9 @@ export default class Discovery extends React.Component {
           />
         }
       >
-        <View>
-          <Image
-            source={{ uri: 'https://images.pexels.com/photos/68147/waterfall-thac-dray-nur-buon-me-thuot-daklak-68147.jpeg?auto=compress&cs=tinysrgb&h=350' }}
-            style={styles.image}
-          />
-        </View>
+        <Carousel
+          image={this.props.image}
+        />
 
         <View style={styles.lineSpacing}>
           <Slidebar
@@ -157,3 +157,7 @@ const styles = StyleSheet.create({
     marginBottom: Layout.Height(10),
   },
 });
+
+export default connect(({ carousel }) => ({
+  image: carousel.image,
+}))(Discovery);

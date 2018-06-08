@@ -3,6 +3,8 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 
+import Navigator, { dispatcher } from '../../helper/navigator';
+
 import Card from './Components/Card';
 
 import Fonts from '../../res/fonts';
@@ -10,11 +12,20 @@ import Layout from '../../res/dimensions';
 import Colors from '../../res/colors';
 import Icons from '../../res/icons';
 
+let dispatch;
+
 class HotRecommended extends Component {
+  constructor(props) {
+    super(props);
+    dispatch = dispatcher(this.props);
+  }
   render() {
     return (
       <View>
-        <TouchableOpacity style={styles.titleBar}>
+        <TouchableOpacity
+          style={styles.titleBar}
+          onPress={() => dispatch(Navigator.navigate('Video'))}
+        >
           <View style={styles.titleBarLeft}>
             <Text style={styles.titleBarLeftFont}>热门推荐</Text>
           </View>
@@ -28,6 +39,7 @@ class HotRecommended extends Component {
             />
           </View>
         </TouchableOpacity>
+
         <Card item={this.props.hotVideo[0]} />
       </View>
     );

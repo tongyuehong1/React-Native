@@ -50,15 +50,6 @@ export default class Footprint extends Component {
 
         <View style={styles.part}>
           <Icon
-            name="ios-clock-outline"
-            size={Icons.large}
-            type="ionicon"
-          />
-          <Text style={styles.font}>历史记录</Text>
-        </View>
-
-        <View style={styles.part}>
-          <Icon
             name="ios-download-outline"
             size={Icons.large}
             type="ionicon"

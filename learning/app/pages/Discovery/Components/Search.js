@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet } from 'react-native';
-import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
+import { ScrollableTabView, StyleSheet } from 'react-native';
+import { SearchBar } from 'react-native-elements';
 
 import Layout from '../../../res/dimensions';
 
 class Classic extends Component {
   static navigationOptions = {
-    title: "经典必看",
+    title: "",
   };
+
+  constructor(props) {
+    super(props);
+    this.state = { text: '啊' };
+  }
 
   render() {
     return (
-      <ScrollableTabView
-        style={styles.asdf}
-        renderTabBar={() => <DefaultTabBar />}
-      >
-        <Text style={styles.textStyle} tabLabel="娱乐">娱乐</Text>
-        <Text style={styles.textStyle} tabLabel="科技">科技</Text>
-        <Text style={styles.textStyle} tabLabel="军事">军事</Text>
-        <Text style={styles.textStyle} tabLabel="体育">体育</Text>
+      <ScrollableTabView>
+        <SearchBar
+          lightTheme
+          onChangeText={this.state.text}
+          placeholder="搜索更多内容"
+        />
       </ScrollableTabView>
     );
   }
